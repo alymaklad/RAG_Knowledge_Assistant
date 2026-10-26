@@ -1,0 +1,827 @@
+{
+  "hybrid_rerank": {
+    "hit1": 0.959,
+    "hit": 1.0,
+    "mrr": 0.98,
+    "recall": 1.0,
+    "precision": 0.834,
+    "retrieval_s_per_query": 0.41,
+    "mean_top_score_answerable": 0.898,
+    "mean_top_score_unanswerable": 0.0,
+    "hit_by_type": {
+      "factual": 1.0,
+      "multilingual": 1.0
+    },
+    "per_question": [
+      {
+        "id": "bn01",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9908034801483154
+      },
+      {
+        "id": "bn02",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9970878958702087
+      },
+      {
+        "id": "bn03",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9141375422477722
+      },
+      {
+        "id": "bn04",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9983256459236145
+      },
+      {
+        "id": "bn05",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.8745065331459045
+      },
+      {
+        "id": "bn06",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.8723474144935608
+      },
+      {
+        "id": "bn07",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9643886089324951
+      },
+      {
+        "id": "bn08",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9649873375892639
+      },
+      {
+        "id": "bn09",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9187722206115723
+      },
+      {
+        "id": "bn10",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.5799952149391174
+      },
+      {
+        "id": "bn11",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9941347241401672
+      },
+      {
+        "id": "bn12",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.975296139717102
+      },
+      {
+        "id": "bn13",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9145963191986084
+      },
+      {
+        "id": "bn14",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9686195850372314
+      },
+      {
+        "id": "bn15",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.5908382534980774
+      },
+      {
+        "id": "bn16",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9287972450256348
+      },
+      {
+        "id": "hmm01",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9987695813179016
+      },
+      {
+        "id": "hmm02",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9964203834533691
+      },
+      {
+        "id": "hmm03",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9775857925415039
+      },
+      {
+        "id": "hmm04",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9809855818748474
+      },
+      {
+        "id": "hmm05",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9763556718826294
+      },
+      {
+        "id": "hmm06",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9133679866790771
+      },
+      {
+        "id": "hmm07",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.3854903280735016
+      },
+      {
+        "id": "hmm08",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9991573095321655
+      },
+      {
+        "id": "hmm09",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9966885447502136
+      },
+      {
+        "id": "hmm10",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9954439401626587
+      },
+      {
+        "id": "hmm11",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9954261183738708
+      },
+      {
+        "id": "hmm12",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.8010035157203674
+      },
+      {
+        "id": "hmm13",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9657061100006104
+      },
+      {
+        "id": "hmm14",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9984812140464783
+      },
+      {
+        "id": "hmm15",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.6610482335090637
+      },
+      {
+        "id": "hmm16",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9975177049636841
+      },
+      {
+        "id": "tcp01",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9960082769393921
+      },
+      {
+        "id": "tcp02",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.8480936288833618
+      },
+      {
+        "id": "tcp03",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9451974034309387
+      },
+      {
+        "id": "tcp04",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9761291742324829
+      },
+      {
+        "id": "tcp05",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9987305998802185
+      },
+      {
+        "id": "tcp06",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9950562715530396
+      },
+      {
+        "id": "tcp07",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.8652240633964539
+      },
+      {
+        "id": "tcp08",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9993435740470886
+      },
+      {
+        "id": "tcp09",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9785493016242981
+      },
+      {
+        "id": "tcp10",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.46996113657951355
+      },
+      {
+        "id": "tcp11",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9924813508987427
+      },
+      {
+        "id": "tcp12",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9343951344490051
+      },
+      {
+        "id": "tcp13",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.984752357006073
+      },
+      {
+        "id": "tcp14",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.83601975440979
+      },
+      {
+        "id": "ml01",
+        "type": "multilingual",
+        "hit": 1.0,
+        "top_score": 0.4978656470775604
+      },
+      {
+        "id": "ml02",
+        "type": "multilingual",
+        "hit": 1.0,
+        "top_score": 0.6315943002700806
+      },
+      {
+        "id": "ml03",
+        "type": "multilingual",
+        "hit": 1.0,
+        "top_score": 0.9810219407081604
+      },
+      {
+        "id": "na01",
+        "type": "unanswerable",
+        "hit": 0.0,
+        "top_score": 0.0
+      },
+      {
+        "id": "na02",
+        "type": "unanswerable",
+        "hit": 0.0,
+        "top_score": 0.0
+      },
+      {
+        "id": "na03",
+        "type": "unanswerable",
+        "hit": 0.0,
+        "top_score": 0.0
+      }
+    ],
+    "min_top_score_answerable": 0.3855,
+    "max_top_score_unanswerable": 0.0,
+    "generation": {
+      "false_abstention": 0.0,
+      "latency_s": 14.309,
+      "first_token_s": 1.609,
+      "cited": 1.0,
+      "invalid_citation": 0.0,
+      "cited_relevant": 1.0,
+      "key_terms": 0.936,
+      "abstention_on_unanswerable": 1.0,
+      "llm_model": "qwen2.5:7b-instruct"
+    },
+    "_records": [
+      {
+        "id": "bn01",
+        "question": "How many numbers are needed to specify a joint distribution over n binary variables without any independence assumptions?",
+        "answer": "To specify a joint distribution over \\(n\\) binary variables without making any independence assumptions, you need \\(2^n - 1\\) numbers. This is because each variable can take on one of two values (0 or 1), and there are \\(2^n\\) possible combinations of these values. Since the distribution must be specified for all but one combination to fully define it over all combinations, we subtract one from \\(2^n\\).\n\nFor example, if you have 30 binary variables, you would need \\(2^{30} - 1\\) numbers, which is significantly more than a billion.\n\n[Source 1] provides this information directly in its explanation of the complexity involved when no independence assumptions are made.",
+        "contexts": [
+          "A joint distribution over n binary variables needs 2^n - 1 numbers to specify. For 30 variables that is\nmore than a billion parameters, far too many to store or to learn from data. Probabilistic graphical\nmodels avoid this by exploiting conditional independence: most variables interact directly with only a few\nothers.\n\nA Bayesian network is a directed acyclic graph (DAG) in which every node is a random variable and\nevery edge points from a parent to a child. Each node stores a conditional probability table (CPT) that\ngives the distribution of the node given each combination of its parents' values.\n\nThe network represents the joint distribution through the chain rule for Bayesian networks: the joint\nprobability of all variables equals the product, over every node, of the probability of that node given its\nparents. A network over 30 binary variables where no node has more than three parents needs at most\n30 x 8 = 240 numbers."
+        ],
+        "ground_truth": "2^n - 1 numbers."
+      },
+      {
+        "id": "bn02",
+        "question": "What is a Bayesian network?",
+        "answer": "A Bayesian network is a directed acyclic graph (DAG) used to represent probabilistic relationships among a set of random variables [Source 1]. In this model, each node corresponds to a random variable, and edges indicate direct dependencies or influences between these variables. Specifically, every edge points from a parent node to a child node, indicating that the value of the child depends on the value of its parent(s).\n\nEach node in the Bayesian network stores a conditional probability table (CPT) that specifies the distribution of the node given each possible combination of values for its parents [Source 1]. The entire joint distribution over all variables can be computed using the chain rule for Bayesian networks, which states that the joint probability of all variables equals the product of the probabilities of each variable given its parent nodes.\n\nThis structure allows a Bayesian network to significantly reduce the number of parameters needed compared to specifying a full joint distribution. For example, with 30 binary variables and no node having more than three parents, the network would require at most 240 numbers instead of over a billion [Source 1].",
+        "contexts": [
+          "A joint distribution over n binary variables needs 2^n - 1 numbers to specify. For 30 variables that is\nmore than a billion parameters, far too many to store or to learn from data. Probabilistic graphical\nmodels avoid this by exploiting conditional independence: most variables interact directly with only a few\nothers.\n\nA Bayesian network is a directed acyclic graph (DAG) in which every node is a random variable and\nevery edge points from a parent to a child. Each node stores a conditional probability table (CPT) that\ngives the distribution of the node given each combination of its parents' values.\n\nThe network represents the joint distribution through the chain rule for Bayesian networks: the joint\nprobability of all variables equals the product, over every node, of the probability of that node given its\nparents. A network over 30 binary variables where no node has more than three parents needs at most\n30 x 8 = 240 numbers.",
+          "Every Bayesian network encodes a set of conditional independence assumptions. The local Markov\nproperty says that each node is conditionally independent of its non-descendants given its parents.\n\nD-separation is the graphical test for whether two sets of variables are independent given a third set. A\npath between two nodes is blocked by the evidence if it contains one of three patterns:\n\n1. A chain X -> Z -> Y where the middle node Z is observed. 2. A fork X <- Z -> Y where the common\ncause Z is observed. 3. A collider X -> Z <- Y where neither Z nor any descendant of Z is observed.\n\nThe collider case behaves the opposite way from the other two. Observing a common effect makes its\ncauses dependent. This is called explaining away: if the alarm is ringing and we learn there was an\nearthquake, the probability of a burglary goes down."
+        ],
+        "ground_truth": "A directed acyclic graph where each node is a random variable, each edge points from parent to child, and each node has a conditional probability table given its parents."
+      },
+      {
+        "id": "bn03",
+        "question": "What does a conditional probability table store?",
+        "answer": "A conditional probability table (CPT) stores the distribution of a node given each combination of its parents' values. In other words, for every possible configuration of the parent nodes, the CPT specifies the probabilities of the node taking on each of its possible states.\n\nFor example, if a node has two binary parents (each with 2 states), there are \\(2 \\times 2 = 4\\) combinations of parent states. The CPT would then specify the probability distribution over the node's states for each of these four combinations [Source 1].",
+        "contexts": [
+          "A joint distribution over n binary variables needs 2^n - 1 numbers to specify. For 30 variables that is\nmore than a billion parameters, far too many to store or to learn from data. Probabilistic graphical\nmodels avoid this by exploiting conditional independence: most variables interact directly with only a few\nothers.\n\nA Bayesian network is a directed acyclic graph (DAG) in which every node is a random variable and\nevery edge points from a parent to a child. Each node stores a conditional probability table (CPT) that\ngives the distribution of the node given each combination of its parents' values.\n\nThe network represents the joint distribution through the chain rule for Bayesian networks: the joint\nprobability of all variables equals the product, over every node, of the probability of that node given its\nparents. A network over 30 binary variables where no node has more than three parents needs at most\n30 x 8 = 240 numbers."
+        ],
+        "ground_truth": "The distribution of a node given each combination of its parents' values."
+      },
+      {
+        "id": "bn04",
+        "question": "How many parameters does a network over 30 binary variables need if no node has more than three parents?",
+        "answer": "A network over 30 binary variables, where no node has more than three parents, needs at most 240 parameters.\n\nTo understand this, let's break it down:\n\n1. Each node in the Bayesian network stores a conditional probability table (CPT) that gives the distribution of the node given each combination of its parents' values.\n2. For a binary variable with \\( k \\) parents, there are \\( 2^k \\) possible combinations of parent states. Since no node has more than three parents (\\( k \\leq 3 \\)), the number of combinations is at most \\( 2^3 = 8 \\).\n3. Each combination needs a probability value (since it's binary), so each CPT will have up to 8 probabilities.\n4. There are 30 nodes in total, and each node has an associated CPT with up to 8 entries.\n\nThus, the maximum number of parameters needed is \\( 30 \\times 8 = 240 \\).\n\nThis approach significantly reduces the number of parameters required compared to specifying a full joint distribution over all variables. [Source 1]",
+        "contexts": [
+          "A joint distribution over n binary variables needs 2^n - 1 numbers to specify. For 30 variables that is\nmore than a billion parameters, far too many to store or to learn from data. Probabilistic graphical\nmodels avoid this by exploiting conditional independence: most variables interact directly with only a few\nothers.\n\nA Bayesian network is a directed acyclic graph (DAG) in which every node is a random variable and\nevery edge points from a parent to a child. Each node stores a conditional probability table (CPT) that\ngives the distribution of the node given each combination of its parents' values.\n\nThe network represents the joint distribution through the chain rule for Bayesian networks: the joint\nprobability of all variables equals the product, over every node, of the probability of that node given its\nparents. A network over 30 binary variables where no node has more than three parents needs at most\n30 x 8 = 240 numbers."
+        ],
+        "ground_truth": "At most 240 (30 x 8)."
+      },
+      {
+        "id": "bn05",
+        "question": "In the burglary alarm example, what is the probability the alarm goes off when there is a burglary but no earthquake?",
+        "answer": "In the burglary alarm example, the probability that the alarm goes off given a burglary and no earthquake can be found in the Conditional Probability Table (CPT) for Alarm. According to [Source 1], we have:\n\n\\[ P(A = \\text{true} | B = \\text{true}, E = \\text{false}) = 0.94 \\]\n\nThis means that if there is a burglary and no earthquake, the probability of the alarm going off is 0.94.\n\nTo explain further:\n- The CPT for Alarm provides probabilities based on combinations of values for Burglary (B) and Earthquake (E).\n- Specifically, it states \\( P(A = \\text{true} | B = \\text{true}, E = \\text{false}) = 0.94 \\), which directly answers the question.\n\nThis value is derived from the Bayesian network structure where Burglary (B) and Earthquake (E) are parents of Alarm (A). The probability reflects how likely it is for the alarm to go off given these conditions, as per [Source 1].",
+        "contexts": [
+          "The classic example has five variables: Burglary (B), Earthquake (E), Alarm (A), JohnCalls (J) and\nMaryCalls (M). Burglaries and earthquakes both can set off the alarm. John and Mary are neighbours\nwho call when they hear the alarm, but John sometimes confuses the telephone with the alarm, and\nMary often misses the alarm because she listens to loud music.\n\nThe edges are B -> A, E -> A, A -> J and A -> M. The CPT for Alarm has four rows, one for each\ncombination of Burglary and Earthquake. For example, P(A = true | B = true, E = false) = 0.94 and P(A =\ntrue | B = false, E = false) = 0.001.",
+          "Every Bayesian network encodes a set of conditional independence assumptions. The local Markov\nproperty says that each node is conditionally independent of its non-descendants given its parents.\n\nD-separation is the graphical test for whether two sets of variables are independent given a third set. A\npath between two nodes is blocked by the evidence if it contains one of three patterns:\n\n1. A chain X -> Z -> Y where the middle node Z is observed. 2. A fork X <- Z -> Y where the common\ncause Z is observed. 3. A collider X -> Z <- Y where neither Z nor any descendant of Z is observed.\n\nThe collider case behaves the opposite way from the other two. Observing a common effect makes its\ncauses dependent. This is called explaining away: if the alarm is ringing and we learn there was an\nearthquake, the probability of a burglary goes down."
+        ],
+        "ground_truth": "0.94."
+      },
+      {
+        "id": "bn06",
+        "question": "Why might Mary fail to call when the alarm rings?",
+        "answer": "Mary might fail to call when the alarm rings because she often listens to loud music, which makes it difficult for her to hear the alarm properly [Source 1]. This is explicitly mentioned in the context provided.",
+        "contexts": [
+          "The classic example has five variables: Burglary (B), Earthquake (E), Alarm (A), JohnCalls (J) and\nMaryCalls (M). Burglaries and earthquakes both can set off the alarm. John and Mary are neighbours\nwho call when they hear the alarm, but John sometimes confuses the telephone with the alarm, and\nMary often misses the alarm because she listens to loud music.\n\nThe edges are B -> A, E -> A, A -> J and A -> M. The CPT for Alarm has four rows, one for each\ncombination of Burglary and Earthquake. For example, P(A = true | B = true, E = false) = 0.94 and P(A =\ntrue | B = false, E = false) = 0.001."
+        ],
+        "ground_truth": "She often misses the alarm because she listens to loud music."
+      },
+      {
+        "id": "bn07",
+        "question": "What does the local Markov property state?",
+        "answer": "The local Markov property states that in a Bayesian network, each node is conditionally independent of its non-descendants given its parents [Source 1].\n\nTo explain further, consider a Bayesian network where nodes represent random variables. According to the local Markov property, if you want to determine whether a particular variable (node) is independent of other variables not directly connected to it in the network, you only need to condition on its parent nodes. This simplifies the analysis by reducing the number of conditional probabilities that need to be considered [Source 1].",
+        "contexts": [
+          "Every Bayesian network encodes a set of conditional independence assumptions. The local Markov\nproperty says that each node is conditionally independent of its non-descendants given its parents.\n\nD-separation is the graphical test for whether two sets of variables are independent given a third set. A\npath between two nodes is blocked by the evidence if it contains one of three patterns:\n\n1. A chain X -> Z -> Y where the middle node Z is observed. 2. A fork X <- Z -> Y where the common\ncause Z is observed. 3. A collider X -> Z <- Y where neither Z nor any descendant of Z is observed.\n\nThe collider case behaves the opposite way from the other two. Observing a common effect makes its\ncauses dependent. This is called explaining away: if the alarm is ringing and we learn there was an\nearthquake, the probability of a burglary goes down."
+        ],
+        "ground_truth": "Each node is conditionally independent of its non-descendants given its parents."
+      },
+      {
+        "id": "bn08",
+        "question": "When does a collider block a path in d-separation?",
+        "answer": "According to the provided context [Source 1], a collider blocks a path in d-separation only if neither the collider node \\( Z \\) nor any of its descendants are observed. Specifically, for a path between two nodes \\( X \\) and \\( Y \\), if there is a collider structure \\( X \\rightarrow Z \\leftarrow Y \\) and both \\( Z \\) and all its descendants remain unobserved, then the path is blocked.\n\nTo summarize:\n- If \\( Z \\) (the collider node) or any of its descendants are observed, the path is not blocked.\n- Only when neither \\( Z \\) nor any of its descendants are observed does the path get blocked by the collider structure [Source 1].\n\nThis behavior contrasts with the other two patterns: a chain and a fork. In those cases, observing the middle node or common cause respectively would block the path instead.",
+        "contexts": [
+          "Every Bayesian network encodes a set of conditional independence assumptions. The local Markov\nproperty says that each node is conditionally independent of its non-descendants given its parents.\n\nD-separation is the graphical test for whether two sets of variables are independent given a third set. A\npath between two nodes is blocked by the evidence if it contains one of three patterns:\n\n1. A chain X -> Z -> Y where the middle node Z is observed. 2. A fork X <- Z -> Y where the common\ncause Z is observed. 3. A collider X -> Z <- Y where neither Z nor any descendant of Z is observed.\n\nThe collider case behaves the opposite way from the other two. Observing a common effect makes its\ncauses dependent. This is called explaining away: if the alarm is ringing and we learn there was an\nearthquake, the probability of a burglary goes down."
+        ],
+        "ground_truth": "When neither the collider node nor any of its descendants is observed."
+      },
+      {
+        "id": "bn09",
+        "question": "What is explaining away?",
+        "answer": "Explaining away refers to a situation in Bayesian networks where observing a common effect makes its causes dependent [Source 1]. Specifically, it occurs when a collider node (a node with two parents) and neither the node itself nor any of its descendants are observed. In such cases, if evidence is provided that indicates an alternative cause for the observed effect, the probability of the original causes decreases.\n\nFor example, consider the scenario where \"alarm ringing\" is the common effect. If we observe that there was an earthquake (an alternative cause), the probability of a burglary (one of the original causes) would decrease because the alarm could be due to the earthquake instead [Source 1]. This phenomenon is known as explaining away and is illustrated in the third pattern of d-separation: a collider X -> Z <- Y, where neither Z nor any descendant of Z is observed.",
+        "contexts": [
+          "Every Bayesian network encodes a set of conditional independence assumptions. The local Markov\nproperty says that each node is conditionally independent of its non-descendants given its parents.\n\nD-separation is the graphical test for whether two sets of variables are independent given a third set. A\npath between two nodes is blocked by the evidence if it contains one of three patterns:\n\n1. A chain X -> Z -> Y where the middle node Z is observed. 2. A fork X <- Z -> Y where the common\ncause Z is observed. 3. A collider X -> Z <- Y where neither Z nor any descendant of Z is observed.\n\nThe collider case behaves the opposite way from the other two. Observing a common effect makes its\ncauses dependent. This is called explaining away: if the alarm is ringing and we learn there was an\nearthquake, the probability of a burglary goes down."
+        ],
+        "ground_truth": "Observing a common effect makes its causes dependent; e.g. learning of an earthquake lowers the probability of a burglary when the alarm rings."
+      },
+      {
+        "id": "bn10",
+        "question": "What nodes make up the Markov blanket of a node?",
+        "answer": "The Markov blanket of a node consists of its parents, its children, and the other parents (co-parents) of its children. \n\nFor example, in the context provided:\n- The Markov blanket of the \"Alarm\" node includes {Burglary, Earthquake, JohnCalls, MaryCalls}. This is because \"Burglary\" and \"Earthquake\" are direct parents of \"Alarm,\" while \"JohnCalls\" and \"MaryCalls\" are children of \"Alarm.\"\n- The Markov blanket of the \"Burglary\" node includes {Alarm, Earthquake}, where \"Earthquake\" is a co-parent of \"Alarm.\"\n\nThis structure ensures that once you know the nodes in the Markov blanket, you can update the probability distribution of the target node without needing to consider all other nodes in the network [Source 1].",
+        "contexts": [
+          "The Markov blanket of a node consists of its parents, its children, and the other parents of its children\n(its co-parents). Given its Markov blanket, a node is conditionally independent of every other node in the\nnetwork.\n\nThe Markov blanket matters in practice because it is all the information needed to update one variable.\nGibbs sampling, for example, resamples each variable from its distribution conditioned only on its\nMarkov blanket, which keeps every step cheap even in a large network.\n\nIn the alarm network, the Markov blanket of Alarm is {Burglary, Earthquake, JohnCalls, MaryCalls}. The\nMarkov blanket of Burglary is {Alarm, Earthquake}, because Earthquake is a co-parent of Alarm."
+        ],
+        "ground_truth": "Its parents, its children, and the other parents of its children (co-parents)."
+      },
+      {
+        "id": "bn11",
+        "question": "Why is the Markov blanket useful for Gibbs sampling?",
+        "answer": "The Markov blanket of a node contains all the information needed to update that node's distribution in a Bayesian network. Specifically, it includes the node's parents, its children, and the other parents of its children (co-parents). This means that once you have the values of these nodes, you can conditionally infer the state of the target node without needing any additional information from the rest of the network.\n\nIn Gibbs sampling, each variable is resampled based on its conditional distribution given its Markov blanket. Since the Markov blanket contains all necessary dependencies for updating a node, this approach ensures that the sampling process respects these dependencies efficiently. As a result, each step in Gibbs sampling can be performed cheaply even when dealing with large networks.\n\nFor example, consider the alarm network mentioned in the context. To update the state of \"Alarm,\" you only need to condition on its Markov blanket {Burglary, Earthquake, JohnCalls, MaryCalls}. This makes the process efficient and scalable [Source 1].\n\nIn summary, the Markov blanket is useful for Gibbs sampling because it provides a compact set of variables that fully capture the dependencies needed to update any given node. This allows each step in the sampling process to be performed efficiently without requiring information from the entire network.\n\n[Source 1] week06_bayesian_networks.pdf | page 2 | section: The Markov blanket",
+        "contexts": [
+          "The Markov blanket of a node consists of its parents, its children, and the other parents of its children\n(its co-parents). Given its Markov blanket, a node is conditionally independent of every other node in the\nnetwork.\n\nThe Markov blanket matters in practice because it is all the information needed to update one variable.\nGibbs sampling, for example, resamples each variable from its distribution conditioned only on its\nMarkov blanket, which keeps every step cheap even in a large network.\n\nIn the alarm network, the Markov blanket of Alarm is {Burglary, Earthquake, JohnCalls, MaryCalls}. The\nMarkov blanket of Burglary is {Alarm, Earthquake}, because Earthquake is a co-parent of Alarm."
+        ],
+        "ground_truth": "Gibbs sampling resamples each variable conditioned only on its Markov blanket, keeping each step cheap."
+      },
+      {
+        "id": "bn12",
+        "question": "What is the Markov blanket of Burglary in the alarm network?",
+        "answer": "The Markov blanket of Burglary in the alarm network consists of {Alarm, Earthquake} [Source 1].\n\nTo explain further:\n- According to the definition provided in Source 1, the Markov blanket includes a node's parents, its children, and the other parents of its children (co-parents).\n- In the context of the burglary alarm example from Source 3, Burglary has two children: Alarm (A) and Earthquake (E) is a parent to Alarm.\n- Since Earthquake is a co-parent of Alarm, it also needs to be included in the Markov blanket of Burglary [Source 1].\n- Therefore, the complete Markov blanket for Burglary includes both its direct parent (Earthquake) and its child (Alarm).",
+        "contexts": [
+          "The Markov blanket of a node consists of its parents, its children, and the other parents of its children\n(its co-parents). Given its Markov blanket, a node is conditionally independent of every other node in the\nnetwork.\n\nThe Markov blanket matters in practice because it is all the information needed to update one variable.\nGibbs sampling, for example, resamples each variable from its distribution conditioned only on its\nMarkov blanket, which keeps every step cheap even in a large network.\n\nIn the alarm network, the Markov blanket of Alarm is {Burglary, Earthquake, JohnCalls, MaryCalls}. The\nMarkov blanket of Burglary is {Alarm, Earthquake}, because Earthquake is a co-parent of Alarm.",
+          "Every Bayesian network encodes a set of conditional independence assumptions. The local Markov\nproperty says that each node is conditionally independent of its non-descendants given its parents.\n\nD-separation is the graphical test for whether two sets of variables are independent given a third set. A\npath between two nodes is blocked by the evidence if it contains one of three patterns:\n\n1. A chain X -> Z -> Y where the middle node Z is observed. 2. A fork X <- Z -> Y where the common\ncause Z is observed. 3. A collider X -> Z <- Y where neither Z nor any descendant of Z is observed.\n\nThe collider case behaves the opposite way from the other two. Observing a common effect makes its\ncauses dependent. This is called explaining away: if the alarm is ringing and we learn there was an\nearthquake, the probability of a burglary goes down.",
+          "The classic example has five variables: Burglary (B), Earthquake (E), Alarm (A), JohnCalls (J) and\nMaryCalls (M). Burglaries and earthquakes both can set off the alarm. John and Mary are neighbours\nwho call when they hear the alarm, but John sometimes confuses the telephone with the alarm, and\nMary often misses the alarm because she listens to loud music.\n\nThe edges are B -> A, E -> A, A -> J and A -> M. The CPT for Alarm has four rows, one for each\ncombination of Burglary and Earthquake. For example, P(A = true | B = true, E = false) = 0.94 and P(A =\ntrue | B = false, E = false) = 0.001."
+        ],
+        "ground_truth": "{Alarm, Earthquake}, since Earthquake is a co-parent of Alarm."
+      },
+      {
+        "id": "bn13",
+        "question": "What determines the cost of variable elimination?",
+        "answer": "The cost of variable elimination is primarily determined by the size of the largest factor created during the process [Source 1]. This size depends on the treewidth of the network under a specific ordering of variables being eliminated. \n\nTo elaborate, when performing variable elimination:\n- You start with your query, such as \\( P(\\text{Burglary} \\mid \\text{JohnCalls} = \\text{true}, \\text{MaryCalls} = \\text{true}) \\).\n- This is expressed as a sum of products involving conditional probability table (CPT) factors.\n- You then eliminate variables one at a time, each step multiplying only the relevant CPT factors and replacing them with new factors.\n\nThe key factor influencing the cost here is the treewidth of the network under the chosen elimination order. The treewidth measures how tree-like the structure of the graph is; lower treewidth generally means fewer connections between variables, leading to smaller factors during elimination.\n\nHowever, finding the optimal ordering that minimizes this treewidth and thus the size of the largest factor is an NP-hard problem [Source 1]. Therefore, practical systems often use heuristics like min-degree or min-fill to find a good but not necessarily optimal ordering. \n\nIn summary, the cost of variable elimination depends on the treewidth of the network under the chosen elimination order, which can vary significantly based on how you decide to eliminate variables [Source 1].",
+        "contexts": [
+          "Inference means computing a posterior such as P(Burglary | JohnCalls = true, MaryCalls = true).\nEnumeration sums the full joint distribution over all hidden variables, which is exponential in the number\nof variables.\n\nVariable elimination avoids repeated work. It writes the query as a sum of products of CPT factors, then\nsums out the hidden variables one at a time. Each step multiplies only the factors that mention the\nvariable being eliminated and replaces them with a single new factor.\n\nThe order in which variables are eliminated changes the cost dramatically. The cost is governed by the\nsize of the largest factor created, which depends on the treewidth of the network under that ordering.\nFinding the optimal ordering is NP-hard, so practical systems use heuristics such as min-degree or\nmin-fill.\n\nFor polytrees (networks with at most one undirected path between any two nodes), exact inference\ntakes time linear in the size of the network. For general networks exact inference is NP-hard, which\nmotivates approximate methods such as likelihood weighting and Gibbs sampling."
+        ],
+        "ground_truth": "The size of the largest factor created, which depends on the treewidth under the chosen elimination ordering."
+      },
+      {
+        "id": "bn14",
+        "question": "Which heuristics are used to choose a variable elimination ordering?",
+        "answer": "The document mentions that practical systems use heuristics such as min-degree or min-fill to choose the order in which variables are eliminated during exact inference by variable elimination [Source 1].\n\nTo explain further, when performing variable elimination for Bayesian networks, the choice of the order in which we eliminate variables can significantly impact the efficiency and cost of the computation. The document states that finding the optimal ordering is NP-hard, meaning it's computationally intensive to determine the best possible sequence.\n\nTwo common heuristics used are:\n1. **Min-degree**: This heuristic selects the variable with the smallest degree (i.e., the fewest number of neighbors) at each step.\n2. **Min-fill**: This heuristic aims to minimize the increase in the size of the largest factor created during the elimination process by choosing variables that add the least number of new edges when eliminated.\n\nBoth heuristics are used because they provide a practical way to approximate the optimal ordering without having to solve an NP-hard problem [Source 1].",
+        "contexts": [
+          "Inference means computing a posterior such as P(Burglary | JohnCalls = true, MaryCalls = true).\nEnumeration sums the full joint distribution over all hidden variables, which is exponential in the number\nof variables.\n\nVariable elimination avoids repeated work. It writes the query as a sum of products of CPT factors, then\nsums out the hidden variables one at a time. Each step multiplies only the factors that mention the\nvariable being eliminated and replaces them with a single new factor.\n\nThe order in which variables are eliminated changes the cost dramatically. The cost is governed by the\nsize of the largest factor created, which depends on the treewidth of the network under that ordering.\nFinding the optimal ordering is NP-hard, so practical systems use heuristics such as min-degree or\nmin-fill.\n\nFor polytrees (networks with at most one undirected path between any two nodes), exact inference\ntakes time linear in the size of the network. For general networks exact inference is NP-hard, which\nmotivates approximate methods such as likelihood weighting and Gibbs sampling."
+        ],
+        "ground_truth": "Min-degree or min-fill, because finding the optimal ordering is NP-hard."
+      },
+      {
+        "id": "bn15",
+        "question": "How fast is exact inference in a polytree?",
+        "answer": "Exact inference in a polytree takes time linear in the size of the network [Source 1].\n\nTo explain further, consider a polytree where there's at most one undirected path between any two nodes. In such a structure, variable elimination can be performed efficiently because the treewidth is bounded by 1. This means that during the process of eliminating variables, the largest factor created will not grow exponentially with the number of variables, leading to an overall linear time complexity [Source 1].",
+        "contexts": [
+          "Inference means computing a posterior such as P(Burglary | JohnCalls = true, MaryCalls = true).\nEnumeration sums the full joint distribution over all hidden variables, which is exponential in the number\nof variables.\n\nVariable elimination avoids repeated work. It writes the query as a sum of products of CPT factors, then\nsums out the hidden variables one at a time. Each step multiplies only the factors that mention the\nvariable being eliminated and replaces them with a single new factor.\n\nThe order in which variables are eliminated changes the cost dramatically. The cost is governed by the\nsize of the largest factor created, which depends on the treewidth of the network under that ordering.\nFinding the optimal ordering is NP-hard, so practical systems use heuristics such as min-degree or\nmin-fill.\n\nFor polytrees (networks with at most one undirected path between any two nodes), exact inference\ntakes time linear in the size of the network. For general networks exact inference is NP-hard, which\nmotivates approximate methods such as likelihood weighting and Gibbs sampling."
+        ],
+        "ground_truth": "Linear in the size of the network."
+      },
+      {
+        "id": "bn16",
+        "question": "What problem does Laplace smoothing solve when learning CPTs?",
+        "answer": "Laplace smoothing addresses the issue where probabilities can become zero due to a lack of observations in the training data. Specifically, if an event has never been observed (resulting in a count of zero), the maximum-likelihood estimate will also be zero. This can cause the model to incorrectly rule out events that are merely rare but should still have some small probability.\n\nAccording to [Source 1], when every variable is observed in the training data, the maximum-likelihood estimate for each CPT entry is calculated as a ratio of counts: the number of examples where the child takes a value and the parents take a given configuration, divided by the number of examples with that parent configuration. However, if any such count is zero, the resulting probability will also be zero.\n\nLaplace smoothing mitigates this problem by adding one pseudo-count to every cell of the table before normalizing. This ensures that no probability becomes exactly zero and provides a small positive value for all possible outcomes, even those not observed in the training data [Source 1].\n\nIn summary, Laplace smoothing prevents probabilities from becoming zero when some events are unobserved, thereby avoiding overly conservative predictions by the model.",
+        "contexts": [
+          "When every variable is observed in the training data, the maximum-likelihood estimate of each CPT\nentry is a simple ratio of counts: the number of examples where the child takes a value and the parents\ntake a given configuration, divided by the number of examples with that parent configuration.\n\nCounts of zero lead to probabilities of zero, which can make the model rule out events that are merely\nrare. Laplace smoothing fixes this by adding one pseudo-count to every cell of the table before\nnormalizing."
+        ],
+        "ground_truth": "Zero counts giving zero probabilities; it adds one pseudo-count to every cell before normalizing."
+      },
+      {
+        "id": "hmm01",
+        "question": "What two assumptions does a hidden Markov model make?",
+        "answer": "A hidden Markov model (HMM) makes two key assumptions:\n\n1. **Markov Assumption**: The next state depends only on the current state. Mathematically, this is expressed as \\( P(X_t | X_0, ..., X_{t-1}) = P(X_t | X_{t-1}) \\). This means that the probability of being in a particular hidden state at time \\( t \\) depends solely on the state at time \\( t-1 \\), and not on any previous states.\n\n2. **Sensor Assumption**: Each observation depends only on the current state. Formally, this is written as \\( P(E_t | X_0, ..., X_{t-1}, X_{t+1}, ..., X_n) = P(E_t | X_t) \\). This means that an observation at time \\( t \\) is influenced by the hidden state at time \\( t \\), but not by any other states.\n\nThese assumptions are fundamental to defining how HMMs operate and what they can model. [Source 1] provides these definitions directly in the context of the umbrella world example, where the security guard's observations (umbrella presence) depend on the current weather state (hidden).",
+        "contexts": [
+          "A hidden Markov model (HMM) describes a sequence of observations generated by a sequence of\nhidden states. At each time step t the system is in a hidden state X_t, which we cannot see, and it emits\nan observation E_t, which we can.\n\nAn HMM makes two assumptions. The Markov assumption says the next state depends only on the\ncurrent state: P(X_t | X_0, ..., X_{t-1}) = P(X_t | X_{t-1}). The sensor assumption says each observation\ndepends only on the current state.\n\nAn HMM is fully specified by three sets of parameters: the initial state distribution, the transition model\nP(X_t | X_{t-1}), and the emission (sensor) model P(E_t | X_t). With N hidden states, the transition\nmodel is an N x N matrix whose rows each sum to one.\n\nThe umbrella world is the running example. A security guard in an underground facility never sees the\nweather, but each morning sees whether the director carries an umbrella. The hidden state is Rain (true\nor false); the observation is Umbrella. The transition model says rain persists with probability 0.7, and\nthe director carries an umbrella on 90 percent of rainy days and 20 percent of dry days.",
+          "Every Bayesian network encodes a set of conditional independence assumptions. The local Markov\nproperty says that each node is conditionally independent of its non-descendants given its parents.\n\nD-separation is the graphical test for whether two sets of variables are independent given a third set. A\npath between two nodes is blocked by the evidence if it contains one of three patterns:\n\n1. A chain X -> Z -> Y where the middle node Z is observed. 2. A fork X <- Z -> Y where the common\ncause Z is observed. 3. A collider X -> Z <- Y where neither Z nor any descendant of Z is observed.\n\nThe collider case behaves the opposite way from the other two. Observing a common effect makes its\ncauses dependent. This is called explaining away: if the alarm is ringing and we learn there was an\nearthquake, the probability of a burglary goes down."
+        ],
+        "ground_truth": "The Markov assumption (next state depends only on the current state) and the sensor assumption (each observation depends only on the current state)."
+      },
+      {
+        "id": "hmm02",
+        "question": "What three sets of parameters specify an HMM?",
+        "answer": "An hidden Markov model (HMM) is fully specified by the following three sets of parameters:\n\n1. **Initial state distribution**: This describes the probability of starting in each hidden state at time \\( t = 0 \\). For example, if there are two states (Rain and No Rain), this would specify \\( P(X_0 = \\text{Rain}) \\) and \\( P(X_0 = \\text{No Rain}) \\).\n\n2. **Transition model**: This is the probability of moving from one hidden state to another at each time step. Specifically, it's given by a matrix where each row sums to 1. For instance, if there are two states (Rain and No Rain), the transition model would be represented as:\n   \\[\n   P(X_t = j | X_{t-1} = i) \n   \\]\n   for \\( i, j \\in \\{0, 1\\} \\).\n\n3. **Emission (sensor) model**: This describes the probability of observing a particular observation given the current hidden state. For example, if the observation is whether or not the director carries an umbrella on a rainy day, this would specify:\n   \\[\n   P(E_t = k | X_t = i)\n   \\]\n   for \\( k \\in \\{0, 1\\} \\) and \\( i \\in \\{0, 1\\} \\).\n\nIn the context provided [Source 1], these parameters are illustrated using the umbrella world example. The transition model specifies that rain persists with a probability of 0.7, while the emission (sensor) model indicates that on rainy days, the director carries an umbrella 90% of the time and on dry days, he carries one only 20% of the time.\n\nThese parameters together fully define how the HMM operates [Source 1].",
+        "contexts": [
+          "A hidden Markov model (HMM) describes a sequence of observations generated by a sequence of\nhidden states. At each time step t the system is in a hidden state X_t, which we cannot see, and it emits\nan observation E_t, which we can.\n\nAn HMM makes two assumptions. The Markov assumption says the next state depends only on the\ncurrent state: P(X_t | X_0, ..., X_{t-1}) = P(X_t | X_{t-1}). The sensor assumption says each observation\ndepends only on the current state.\n\nAn HMM is fully specified by three sets of parameters: the initial state distribution, the transition model\nP(X_t | X_{t-1}), and the emission (sensor) model P(E_t | X_t). With N hidden states, the transition\nmodel is an N x N matrix whose rows each sum to one.\n\nThe umbrella world is the running example. A security guard in an underground facility never sees the\nweather, but each morning sees whether the director carries an umbrella. The hidden state is Rain (true\nor false); the observation is Umbrella. The transition model says rain persists with probability 0.7, and\nthe director carries an umbrella on 90 percent of rainy days and 20 percent of dry days."
+        ],
+        "ground_truth": "The initial state distribution, the transition model, and the emission (sensor) model."
+      },
+      {
+        "id": "hmm03",
+        "question": "What shape is the transition model of an HMM with N states?",
+        "answer": "The transition model of a hidden Markov model (HMM) with \\(N\\) states is represented as an \\(N \\times N\\) matrix. Each row in this matrix sums to one, indicating the probabilities of transitioning from one state to another.\n\nThis structure arises because each row corresponds to the current state and specifies the probability distribution over all possible next states. Since there are \\(N\\) states, each row has \\(N\\) entries (one for each potential transition), hence forming an \\(N \\times N\\) matrix [Source 1].",
+        "contexts": [
+          "A hidden Markov model (HMM) describes a sequence of observations generated by a sequence of\nhidden states. At each time step t the system is in a hidden state X_t, which we cannot see, and it emits\nan observation E_t, which we can.\n\nAn HMM makes two assumptions. The Markov assumption says the next state depends only on the\ncurrent state: P(X_t | X_0, ..., X_{t-1}) = P(X_t | X_{t-1}). The sensor assumption says each observation\ndepends only on the current state.\n\nAn HMM is fully specified by three sets of parameters: the initial state distribution, the transition model\nP(X_t | X_{t-1}), and the emission (sensor) model P(E_t | X_t). With N hidden states, the transition\nmodel is an N x N matrix whose rows each sum to one.\n\nThe umbrella world is the running example. A security guard in an underground facility never sees the\nweather, but each morning sees whether the director carries an umbrella. The hidden state is Rain (true\nor false); the observation is Umbrella. The transition model says rain persists with probability 0.7, and\nthe director carries an umbrella on 90 percent of rainy days and 20 percent of dry days.",
+          "Filtering is done recursively by the forward algorithm. The forward message f_1:t is the filtered\ndistribution at time t. Each update has two steps: first predict by pushing the previous belief through the\ntransition model, then update by multiplying by the probability of the new evidence and normalizing.\n\nThe forward algorithm takes time and space proportional to N^2 per step, and it does not need to store\nthe history: each update uses only the previous message. This constant cost per step is what makes\nHMMs practical for online tracking."
+        ],
+        "ground_truth": "An N x N matrix whose rows each sum to one."
+      },
+      {
+        "id": "hmm04",
+        "question": "In the umbrella world, how likely is the director to carry an umbrella on a dry day?",
+        "answer": "In the umbrella world example provided [Source 1], it states that \"the director carries an umbrella on 90 percent of rainy days and 20 percent of dry days.\" Therefore, the probability that the director carries an umbrella on a dry day is 20%.\n\nTo break this down further:\n- The transition model specifies the probabilities of transitioning between hidden states (Rain or No Rain).\n- The emission model gives us the probability of observing an umbrella given the current state.\n\nFrom the context: \n\\[ P(\\text{Umbrella} | \\text{No Rain}) = 0.20 \\]\n\nThis means that when it is not raining, there is a 20% chance that the director will carry an umbrella [Source 1].",
+        "contexts": [
+          "A hidden Markov model (HMM) describes a sequence of observations generated by a sequence of\nhidden states. At each time step t the system is in a hidden state X_t, which we cannot see, and it emits\nan observation E_t, which we can.\n\nAn HMM makes two assumptions. The Markov assumption says the next state depends only on the\ncurrent state: P(X_t | X_0, ..., X_{t-1}) = P(X_t | X_{t-1}). The sensor assumption says each observation\ndepends only on the current state.\n\nAn HMM is fully specified by three sets of parameters: the initial state distribution, the transition model\nP(X_t | X_{t-1}), and the emission (sensor) model P(E_t | X_t). With N hidden states, the transition\nmodel is an N x N matrix whose rows each sum to one.\n\nThe umbrella world is the running example. A security guard in an underground facility never sees the\nweather, but each morning sees whether the director carries an umbrella. The hidden state is Rain (true\nor false); the observation is Umbrella. The transition model says rain persists with probability 0.7, and\nthe director carries an umbrella on 90 percent of rainy days and 20 percent of dry days."
+        ],
+        "ground_truth": "20 percent."
+      },
+      {
+        "id": "hmm05",
+        "question": "What is the probability that rain persists from one day to the next in the umbrella world?",
+        "answer": "The probability that rain persists from one day to the next in the umbrella world, as given in the context [Source 1], is 0.7.\n\nThis value comes directly from the transition model described for the hidden state \"Rain\" in the example of the \"umbrella world\". Specifically, it states: \"The transition model says rain persists with probability 0.7.\" This means that if it rains on one day, there is a 70% chance it will also rain the next day.\n\n\\[\nP(\\text{Rain tomorrow} \\mid \\text{Rain today}) = 0.7\n\\]\n\nThis probability is part of the transition matrix for the HMM in this example, which describes how the hidden state (whether it rains) changes from one time step to the next. [Source 1]",
+        "contexts": [
+          "A hidden Markov model (HMM) describes a sequence of observations generated by a sequence of\nhidden states. At each time step t the system is in a hidden state X_t, which we cannot see, and it emits\nan observation E_t, which we can.\n\nAn HMM makes two assumptions. The Markov assumption says the next state depends only on the\ncurrent state: P(X_t | X_0, ..., X_{t-1}) = P(X_t | X_{t-1}). The sensor assumption says each observation\ndepends only on the current state.\n\nAn HMM is fully specified by three sets of parameters: the initial state distribution, the transition model\nP(X_t | X_{t-1}), and the emission (sensor) model P(E_t | X_t). With N hidden states, the transition\nmodel is an N x N matrix whose rows each sum to one.\n\nThe umbrella world is the running example. A security guard in an underground facility never sees the\nweather, but each morning sees whether the director carries an umbrella. The hidden state is Rain (true\nor false); the observation is Umbrella. The transition model says rain persists with probability 0.7, and\nthe director carries an umbrella on 90 percent of rainy days and 20 percent of dry days."
+        ],
+        "ground_truth": "0.7."
+      },
+      {
+        "id": "hmm06",
+        "question": "What is filtering in an HMM?",
+        "answer": "Filtering in a hidden Markov model (HMM) involves computing the belief state \\( P(X_t | e_1:t) \\), which represents the distribution over the current state given all evidence up to time \\( t \\). This process is done recursively using the forward algorithm [Source 2].\n\nThe forward algorithm updates this belief state through two steps at each time step:\n1. **Prediction**: Pushing the previous belief through the transition model.\n2. **Update**: Multiplying by the probability of the new evidence and normalizing.\n\nThis recursive computation allows for efficient online tracking, as it only requires storing the message from the previous step [Source 1].\n\nFor example, in the umbrella world scenario described in [Source 3], filtering would help determine the probability that it is raining given all observations up to a certain morning.",
+        "contexts": [
+          "Filtering is done recursively by the forward algorithm. The forward message f_1:t is the filtered\ndistribution at time t. Each update has two steps: first predict by pushing the previous belief through the\ntransition model, then update by multiplying by the probability of the new evidence and normalizing.\n\nThe forward algorithm takes time and space proportional to N^2 per step, and it does not need to store\nthe history: each update uses only the previous message. This constant cost per step is what makes\nHMMs practical for online tracking.",
+          "There are four standard inference tasks on an HMM:\n\n1. Filtering: computing the belief state P(X_t | e_1:t), the distribution over the current state given all\nevidence so far. 2. Prediction: computing P(X_{t+k} | e_1:t) for some k > 0. 3. Smoothing: computing\nP(X_k | e_1:t) for a past time k < t, using later evidence to improve the estimate. 4. Most likely\nexplanation: finding the single most likely state sequence given the observations.",
+          "A hidden Markov model (HMM) describes a sequence of observations generated by a sequence of\nhidden states. At each time step t the system is in a hidden state X_t, which we cannot see, and it emits\nan observation E_t, which we can.\n\nAn HMM makes two assumptions. The Markov assumption says the next state depends only on the\ncurrent state: P(X_t | X_0, ..., X_{t-1}) = P(X_t | X_{t-1}). The sensor assumption says each observation\ndepends only on the current state.\n\nAn HMM is fully specified by three sets of parameters: the initial state distribution, the transition model\nP(X_t | X_{t-1}), and the emission (sensor) model P(E_t | X_t). With N hidden states, the transition\nmodel is an N x N matrix whose rows each sum to one.\n\nThe umbrella world is the running example. A security guard in an underground facility never sees the\nweather, but each morning sees whether the director carries an umbrella. The hidden state is Rain (true\nor false); the observation is Umbrella. The transition model says rain persists with probability 0.7, and\nthe director carries an umbrella on 90 percent of rainy days and 20 percent of dry days."
+        ],
+        "ground_truth": "Computing the belief state P(X_t | e_1:t), the distribution over the current state given all evidence so far."
+      },
+      {
+        "id": "hmm07",
+        "question": "What is smoothing, as opposed to filtering?",
+        "answer": "Smoothing in Hidden Markov Models (HMMs) involves computing the probability of a state at a past time point \\( k \\) given all the evidence up to the current time \\( t \\), where \\( k < t \\). This means that we use information from both the past and the future to refine our estimate of the state at an earlier time.\n\nIn contrast, filtering computes the belief state \\( P(X_t | e_1:t) \\), which is the distribution over the current state given all evidence up to the present. Filtering does not incorporate any future observations into its computation; it only uses past and present data.\n\nTo summarize:\n- **Filtering**: Computes \\( P(X_t | e_1:t) \\), the probability of the current state given all evidence up to the current time.\n- **Smoothing**: Computes \\( P(X_k | e_1:t) \\) for a past time point \\( k < t \\), using future observations to improve the estimate.\n\n[Source 1] week07_hidden_markov_models.pdf, page 2, section: Inference tasks.",
+        "contexts": [
+          "There are four standard inference tasks on an HMM:\n\n1. Filtering: computing the belief state P(X_t | e_1:t), the distribution over the current state given all\nevidence so far. 2. Prediction: computing P(X_{t+k} | e_1:t) for some k > 0. 3. Smoothing: computing\nP(X_k | e_1:t) for a past time k < t, using later evidence to improve the estimate. 4. Most likely\nexplanation: finding the single most likely state sequence given the observations."
+        ],
+        "ground_truth": "Computing the distribution of a past state using all evidence up to now, so later evidence improves the estimate."
+      },
+      {
+        "id": "hmm08",
+        "question": "What are the two steps of each forward algorithm update?",
+        "answer": "The two steps of each forward algorithm update are:\n\n1. **Prediction**: The previous belief (or state distribution) at time \\( t-1 \\) is pushed through the transition model to predict the current state distribution at time \\( t \\).\n2. **Update**: This predicted distribution is then updated by multiplying it with the probability of the new evidence observed at time \\( t \\), and finally normalizing the result.\n\nThese steps are described in [Source 1] on page 2, section \"The forward algorithm\".",
+        "contexts": [
+          "Filtering is done recursively by the forward algorithm. The forward message f_1:t is the filtered\ndistribution at time t. Each update has two steps: first predict by pushing the previous belief through the\ntransition model, then update by multiplying by the probability of the new evidence and normalizing.\n\nThe forward algorithm takes time and space proportional to N^2 per step, and it does not need to store\nthe history: each update uses only the previous message. This constant cost per step is what makes\nHMMs practical for online tracking."
+        ],
+        "ground_truth": "Predict by pushing the previous belief through the transition model, then update by multiplying by the evidence probability and normalizing."
+      },
+      {
+        "id": "hmm09",
+        "question": "Why is the forward algorithm practical for online tracking?",
+        "answer": "The forward algorithm is practical for online tracking because it has a constant computational complexity per time step, specifically proportional to \\(N^2\\) where \\(N\\) is the number of states in the Hidden Markov Model (HMM). This means that regardless of how much data has been processed so far, each update can be computed efficiently.\n\nThe algorithm works by recursively updating the forward messages. Each update involves two steps:\n1. **Prediction**: The previous belief is pushed through the transition model to predict the current state.\n2. **Update**: The prediction is then multiplied by the probability of the new evidence and normalized.\n\nSince only the previous message needs to be stored for each step, there is no need to keep track of the entire history, which keeps the space complexity low as well [Source 1].\n\nThis constant cost per step makes HMMs suitable for real-time or online tracking applications where quick updates are necessary.",
+        "contexts": [
+          "Filtering is done recursively by the forward algorithm. The forward message f_1:t is the filtered\ndistribution at time t. Each update has two steps: first predict by pushing the previous belief through the\ntransition model, then update by multiplying by the probability of the new evidence and normalizing.\n\nThe forward algorithm takes time and space proportional to N^2 per step, and it does not need to store\nthe history: each update uses only the previous message. This constant cost per step is what makes\nHMMs practical for online tracking."
+        ],
+        "ground_truth": "Each update uses only the previous message, so cost per step is constant and no history is stored."
+      },
+      {
+        "id": "hmm10",
+        "question": "What does the backward message represent in forward-backward smoothing?",
+        "answer": "The backward message \\( b_{k+1:t} \\) represents the probability of observing the future evidence from time \\( k+1 \\) to \\( t \\), given the state at time \\( k \\). In other words, it quantifies how likely the sequence of observations after time \\( k \\) is, assuming that the system was in a particular state at time \\( k \\).\n\nThis concept is crucial for smoothing because it allows us to incorporate information from later parts of the sequence into our estimates of earlier states. The forward message, on the other hand, contains the probability of observing the past evidence up to time \\( k \\), given the state at that time.\n\nThe combination of these two messages (forward and backward) enables a more accurate estimation of the state probabilities for any point in the sequence by considering both past and future information. [Source 1]",
+        "contexts": [
+          "Smoothing combines a forward message from the start of the sequence with a backward message from\nthe end. The backward message b_k+1:t is the probability of the future evidence given the state at time\nk. The forward-backward algorithm computes all smoothed estimates for a sequence of length t in\nO(N^2 t) time."
+        ],
+        "ground_truth": "The probability of the future evidence given the state at time k."
+      },
+      {
+        "id": "hmm11",
+        "question": "How does the Viterbi algorithm differ from the forward algorithm?",
+        "answer": "The Viterbi algorithm and the forward algorithm serve different purposes in Hidden Markov Models (HMMs), but they share some structural similarities.\n\n1. **Purpose**:\n   - The **forward algorithm** is used for filtering, which means it calculates the probability of a sequence of observations up to time \\( t \\) given the model parameters [Source 2].\n   - The **Viterbi algorithm** finds the most likely sequence of states that could have generated the observed data [Source 1].\n\n2. **Algorithm Structure and Computation**:\n   - Both algorithms use dynamic programming, but they differ in their approach to handling probabilities.\n   - In the **forward algorithm**, at each time step \\( t \\), you compute a forward message \\( f_{1:t} \\) which represents the probability of being in any state up to time \\( t \\) given the observations [Source 2]. This involves predicting and updating using the transition model and observation probabilities, respectively.\n   - In contrast, the **Viterbi algorithm** keeps track of the most likely path ending at each state at every time step. It does this by maintaining a probability for the best path to reach each state and storing back-pointers to reconstruct the sequence later [Source 1].\n\n3. **Time and Space Complexity**:\n   - The forward algorithm has a complexity of \\( O(N^2 t) \\) in terms of time, where \\( N \\) is the number of states and \\( t \\) is the length of the observation sequence. It requires \\( O(1) \\) memory per step because it only needs to store the previous message.\n   - The Viterbi algorithm also has a complexity of \\( O(N^2 t) \\), but it uses \\( O(N t) \\) memory for storing back-pointers [Source 1].\n\n4. **Numerical Stability**:\n   - In practice, when dealing with long sequences, the forward algorithm can suffer from numerical underflow due to multiplying probabilities. To mitigate this issue, logarithms are often used in computations within both algorithms.\n\nIn summary, while the forward algorithm is focused on filtering and predicting the probability of states at each time step given observations, the Viterbi algorithm aims to find the most likely sequence of hidden states that could have generated those observations [Source 1].",
+        "contexts": [
+          "The most likely sequence of states is not the same as the sequence of individually most likely states.\nThe Viterbi algorithm finds the most likely full sequence with dynamic programming.\n\nViterbi has the same structure as the forward algorithm, but it replaces the sum over previous states\nwith a maximum. For every state at every time step it keeps the probability of the best path ending in\nthat state and a back-pointer to the predecessor on that path. At the end, the algorithm follows the\nback-pointers from the best final state to recover the whole sequence.\n\nViterbi runs in O(N^2 t) time and needs O(N t) memory for the back-pointers. In practice probabilities are\nmultiplied as sums of logarithms to avoid numerical underflow on long sequences.",
+          "Filtering is done recursively by the forward algorithm. The forward message f_1:t is the filtered\ndistribution at time t. Each update has two steps: first predict by pushing the previous belief through the\ntransition model, then update by multiplying by the probability of the new evidence and normalizing.\n\nThe forward algorithm takes time and space proportional to N^2 per step, and it does not need to store\nthe history: each update uses only the previous message. This constant cost per step is what makes\nHMMs practical for online tracking."
+        ],
+        "ground_truth": "It replaces the sum over previous states with a maximum and keeps back-pointers to recover the best path."
+      },
+      {
+        "id": "hmm12",
+        "question": "How much memory does Viterbi need?",
+        "answer": "Viterbi algorithm requires \\(O(Nt)\\) memory for storing the back-pointers, where \\(N\\) is the number of states and \\(t\\) is the length of the sequence [Source 1]. This memory is necessary to keep track of the most likely path leading up to each state at every time step.",
+        "contexts": [
+          "The most likely sequence of states is not the same as the sequence of individually most likely states.\nThe Viterbi algorithm finds the most likely full sequence with dynamic programming.\n\nViterbi has the same structure as the forward algorithm, but it replaces the sum over previous states\nwith a maximum. For every state at every time step it keeps the probability of the best path ending in\nthat state and a back-pointer to the predecessor on that path. At the end, the algorithm follows the\nback-pointers from the best final state to recover the whole sequence.\n\nViterbi runs in O(N^2 t) time and needs O(N t) memory for the back-pointers. In practice probabilities are\nmultiplied as sums of logarithms to avoid numerical underflow on long sequences."
+        ],
+        "ground_truth": "O(N t) for the back-pointers."
+      },
+      {
+        "id": "hmm13",
+        "question": "Why are logarithms used in Viterbi implementations?",
+        "answer": "Logarithms are used in Viterbi implementations to avoid numerical underflow when dealing with very small probabilities, especially for long sequences.\n\nThe Viterbi algorithm involves multiplying many small probability values together. As the sequence length \\( t \\) increases, these products can become so small that they fall below the minimum representable value by the computer's floating-point arithmetic system, leading to a loss of precision or underflow [Source 1].\n\nTo mitigate this issue, probabilities are often transformed into their logarithmic form before performing multiplications. When you multiply two numbers \\( p_1 \\) and \\( p_2 \\), it is equivalent to adding their logarithms: \n\\[ \\log(p_1 \\cdot p_2) = \\log(p_1) + \\log(p_2). \\]\n\nThus, instead of multiplying probabilities directly, the algorithm works with sums of their logs. This approach ensures that the values remain within a manageable range and prevents underflow [Source 1].\n\nIn summary, using logarithms in Viterbi implementations helps maintain numerical stability by converting multiplicative operations into additive ones, which is crucial for handling long sequences where direct multiplication would lead to very small numbers that can cause precision issues.",
+        "contexts": [
+          "The most likely sequence of states is not the same as the sequence of individually most likely states.\nThe Viterbi algorithm finds the most likely full sequence with dynamic programming.\n\nViterbi has the same structure as the forward algorithm, but it replaces the sum over previous states\nwith a maximum. For every state at every time step it keeps the probability of the best path ending in\nthat state and a back-pointer to the predecessor on that path. At the end, the algorithm follows the\nback-pointers from the best final state to recover the whole sequence.\n\nViterbi runs in O(N^2 t) time and needs O(N t) memory for the back-pointers. In practice probabilities are\nmultiplied as sums of logarithms to avoid numerical underflow on long sequences."
+        ],
+        "ground_truth": "To avoid numerical underflow on long sequences by adding log probabilities instead of multiplying."
+      },
+      {
+        "id": "hmm14",
+        "question": "What does the E-step of Baum-Welch compute?",
+        "answer": "The E-step of the Baum-Welch algorithm computes the expected number of times each transition and emission was used, based on running forward-backward algorithms. This step helps in estimating the probabilities required for re-estimating the model parameters [Source 1]. \n\nTo elaborate further:\n- The forward-backward algorithms are run during the E-step to calculate these expectations.\n- These calculations provide a way to estimate how often each transition and emission occurs, which is crucial for updating the model parameters in the M-step.\n\nThis computation ensures that we have an accurate estimation of the hidden states' usage, which is necessary for optimizing the model [Source 1].",
+        "contexts": [
+          "When the hidden states are never observed, the parameters are learned with the Baum-Welch\nalgorithm, an instance of expectation-maximization (EM). The E-step runs forward-backward to compute\nthe expected number of times each transition and emission was used. The M-step re-estimates the\nparameters from these expected counts.\n\nEach iteration of Baum-Welch is guaranteed not to decrease the likelihood of the training data, but the\nalgorithm converges only to a local maximum. Running it from several random initializations and\nkeeping the best result is common practice."
+        ],
+        "ground_truth": "It runs forward-backward to compute the expected number of times each transition and emission was used."
+      },
+      {
+        "id": "hmm15",
+        "question": "Does Baum-Welch find the globally optimal parameters?",
+        "answer": "Baum-Welch does not guarantee finding the globally optimal parameters [Source 1]. Instead, it converges to a local maximum of the likelihood function. This means that while each iteration increases or at least maintains the likelihood of the training data, multiple runs from different initializations are often necessary to increase the chances of reaching a better solution.\n\nTo summarize: Baum-Welch is an iterative algorithm used for parameter estimation in hidden Markov models when direct observation of states is not possible. While it ensures that the likelihood does not decrease with each iteration, it may converge to a local optimum rather than the global one [Source 1].",
+        "contexts": [
+          "When the hidden states are never observed, the parameters are learned with the Baum-Welch\nalgorithm, an instance of expectation-maximization (EM). The E-step runs forward-backward to compute\nthe expected number of times each transition and emission was used. The M-step re-estimates the\nparameters from these expected counts.\n\nEach iteration of Baum-Welch is guaranteed not to decrease the likelihood of the training data, but the\nalgorithm converges only to a local maximum. Running it from several random initializations and\nkeeping the best result is common practice."
+        ],
+        "ground_truth": "No, it converges only to a local maximum; running from several random initializations helps."
+      },
+      {
+        "id": "hmm16",
+        "question": "In speech recognition with HMMs, what are the hidden states and the observations?",
+        "answer": "In speech recognition using Hidden Markov Models (HMMs), the hidden states represent phonemes, which are the smallest units of sound in a language. The observations are acoustic features, which are measurable characteristics of the spoken sounds [Source 1].\n\nTo elaborate further:\n- **Hidden States**: These correspond to different phonemes or speech sounds that make up words and sentences. For example, in the word \"cat,\" there would be hidden states for each of the three phonemes: /k/, /æ/, and /t/. The security guard example provided in [Source 2] uses a similar concept but with binary states (Rain or No Rain) rather than multiple phonemes.\n- **Observations**: These are the measurable acoustic features that can be detected by microphones or other sensors. Acoustic features might include spectral characteristics, pitch, and duration of sounds. In the speech recognition context, these observations would correspond to the actual sound waves captured during speech.\n\nThe HMM framework allows us to model the probabilistic relationship between these hidden states (phonemes) and the observable acoustic features, enabling accurate speech recognition [Source 2].",
+        "contexts": [
+          "HMMs were the standard approach to speech recognition for decades, where hidden states are\nphonemes and observations are acoustic features. They are also used for part-of-speech tagging, gene\nfinding in bioinformatics, and robot localization.",
+          "A hidden Markov model (HMM) describes a sequence of observations generated by a sequence of\nhidden states. At each time step t the system is in a hidden state X_t, which we cannot see, and it emits\nan observation E_t, which we can.\n\nAn HMM makes two assumptions. The Markov assumption says the next state depends only on the\ncurrent state: P(X_t | X_0, ..., X_{t-1}) = P(X_t | X_{t-1}). The sensor assumption says each observation\ndepends only on the current state.\n\nAn HMM is fully specified by three sets of parameters: the initial state distribution, the transition model\nP(X_t | X_{t-1}), and the emission (sensor) model P(E_t | X_t). With N hidden states, the transition\nmodel is an N x N matrix whose rows each sum to one.\n\nThe umbrella world is the running example. A security guard in an underground facility never sees the\nweather, but each morning sees whether the director carries an umbrella. The hidden state is Rain (true\nor false); the observation is Umbrella. The transition model says rain persists with probability 0.7, and\nthe director carries an umbrella on 90 percent of rainy days and 20 percent of dry days."
+        ],
+        "ground_truth": "Hidden states are phonemes and observations are acoustic features."
+      },
+      {
+        "id": "tcp01",
+        "question": "What service does TCP provide on top of IP?",
+        "answer": "TCP provides applications with a reliable, in-order byte stream on top of IP [Source 1]. This means that while IP offers best-effort delivery of individual packets (which can be lost, duplicated, reordered, or corrupted), TCP ensures that the data reaches its destination reliably and in the correct order.",
+        "contexts": [
+          "The Transmission Control Protocol (TCP) gives applications a reliable, in-order byte stream on top of IP,\nwhich only offers best-effort delivery of individual packets. IP packets can be lost, duplicated, reordered\nor corrupted; TCP hides all of this from the application.\n\nTCP is connection-oriented and full-duplex: two endpoints set up a connection before exchanging data,\nand data flows in both directions at once. Every byte in the stream has a sequence number, and the\nreceiver sends cumulative acknowledgements that name the next byte it expects.\n\nTCP differs from UDP, which is connectionless and adds little beyond port numbers and a checksum to\nIP. UDP suits applications such as voice calls and DNS lookups, where low latency matters more than\nguaranteed delivery."
+        ],
+        "ground_truth": "A reliable, in-order byte stream, hiding loss, duplication, reordering and corruption."
+      },
+      {
+        "id": "tcp02",
+        "question": "What do TCP acknowledgements name?",
+        "answer": "TCP acknowledgements name the next byte that the receiver expects to receive [Source 1]. This means that when a segment is received, the receiver sends an acknowledgement back to the sender indicating the sequence number of the next byte it is expecting. This mechanism helps ensure that data is transmitted in order and allows the sender to detect if any segments have been lost or corrupted during transmission.",
+        "contexts": [
+          "The Transmission Control Protocol (TCP) gives applications a reliable, in-order byte stream on top of IP,\nwhich only offers best-effort delivery of individual packets. IP packets can be lost, duplicated, reordered\nor corrupted; TCP hides all of this from the application.\n\nTCP is connection-oriented and full-duplex: two endpoints set up a connection before exchanging data,\nand data flows in both directions at once. Every byte in the stream has a sequence number, and the\nreceiver sends cumulative acknowledgements that name the next byte it expects.\n\nTCP differs from UDP, which is connectionless and adds little beyond port numbers and a checksum to\nIP. UDP suits applications such as voice calls and DNS lookups, where low latency matters more than\nguaranteed delivery.",
+          "Congestion control protects the network rather than the receiver. The sender keeps a congestion\nwindow (cwnd), and the amount of data in flight is limited by the smaller of cwnd and the receive\nwindow.\n\nSlow start begins with a small congestion window and doubles it every round-trip time, which is\nexponential growth. When cwnd reaches the slow-start threshold (ssthresh), TCP switches to\ncongestion avoidance and grows the window by about one segment per round-trip time, which is linear\ngrowth.\n\nThis combination is called additive increase, multiplicative decrease (AIMD). On three duplicate\nacknowledgements, TCP Reno halves the congestion window and continues with fast recovery. On a\ntimeout it treats the loss as severe: it sets ssthresh to half the window and restarts slow start from one\nsegment.",
+          "TCP detects loss in two ways. A retransmission timeout fires when an acknowledgement does not arrive\nin time; the timeout is computed from a smoothed estimate of the round-trip time plus four times its\nvariation. Fast retransmit resends a segment as soon as the sender receives three duplicate\nacknowledgements for the data before it, without waiting for the timer.",
+          "Each direction of a TCP connection is closed separately. The side that finishes sending sends a FIN\nsegment, and the other side acknowledges it. Closing both directions normally takes four segments:\nFIN, ACK, FIN, ACK.\n\nThe side that closes first enters the TIME_WAIT state after the exchange and waits for twice the\nmaximum segment lifetime before releasing the connection. TIME_WAIT ensures that the final ACK can\nbe retransmitted if it is lost and that delayed segments from the old connection die out before the same\nport pair is reused.",
+          "A TCP connection is opened with a three-way handshake. The client sends a SYN segment carrying its\ninitial sequence number. The server replies with a SYN-ACK segment that acknowledges the client's\nsequence number and carries the server's own initial sequence number. Finally the client sends an ACK\nthat acknowledges the server's sequence number, and the connection is established.\n\nInitial sequence numbers are chosen randomly rather than starting at zero. This prevents segments\nfrom an old connection between the same ports from being mistaken for part of a new one, and it makes\nit harder for an attacker to inject forged segments.\n\nA SYN flood attack sends many SYN segments without completing the handshake, filling the server's\ntable of half-open connections. SYN cookies defend against this by encoding the connection state in the\nserver's initial sequence number, so the server stores nothing until the final ACK arrives."
+        ],
+        "ground_truth": "The next byte the receiver expects (cumulative acknowledgements)."
+      },
+      {
+        "id": "tcp03",
+        "question": "Why would an application such as DNS use UDP instead of TCP?",
+        "answer": "An application like DNS uses UDP instead of TCP because it prioritizes lower latency over guaranteed delivery. According to the provided context [Source 1], TCP is connection-oriented and provides a reliable, in-order byte stream by retransmitting lost packets and ensuring correct sequence numbers. This process introduces additional overhead, which can increase latency.\n\nIn contrast, UDP (User Datagram Protocol) is connectionless and adds minimal functionality beyond port numbers and a checksum to IP [Source 1]. Since DNS queries require quick responses, the lower latency provided by UDP makes it more suitable for this application compared to TCP's reliability features. \n\nTo summarize, applications like DNS opt for UDP when they need faster response times over guaranteed delivery of data packets.",
+        "contexts": [
+          "The Transmission Control Protocol (TCP) gives applications a reliable, in-order byte stream on top of IP,\nwhich only offers best-effort delivery of individual packets. IP packets can be lost, duplicated, reordered\nor corrupted; TCP hides all of this from the application.\n\nTCP is connection-oriented and full-duplex: two endpoints set up a connection before exchanging data,\nand data flows in both directions at once. Every byte in the stream has a sequence number, and the\nreceiver sends cumulative acknowledgements that name the next byte it expects.\n\nTCP differs from UDP, which is connectionless and adds little beyond port numbers and a checksum to\nIP. UDP suits applications such as voice calls and DNS lookups, where low latency matters more than\nguaranteed delivery."
+        ],
+        "ground_truth": "Low latency matters more than guaranteed delivery."
+      },
+      {
+        "id": "tcp04",
+        "question": "Describe the TCP three-way handshake.",
+        "answer": "The TCP three-way handshake is a process used to establish a connection between a client and a server:\n\n1. **Client Sends SYN Segment**: The client initiates the connection by sending a segment with a SYN (synchronize) flag set, along with an initial sequence number \\( ISN_{client} \\). This segment informs the server that the client wishes to start a TCP session.\n\n2. **Server Responds with SYN-ACK Segment**: Upon receiving the client's SYN segment, the server responds by sending its own SYN and ACK (acknowledge) flags set in a single segment. The server includes an initial sequence number \\( ISN_{server} \\), which is different from the one used by the client.\n\n3. **Client Sends ACK Segment**: Finally, the client sends an ACK segment to acknowledge the server's initial sequence number \\( ISN_{server} \\). This completes the three-way handshake and establishes a full-duplex communication channel between the client and the server.\n\nThe use of random initial sequence numbers (\\( ISN \\)) helps prevent old segments from being mistakenly accepted as part of a new connection. Additionally, this randomness makes it more difficult for attackers to inject forged segments into an existing connection [Source 1].\n\nIn summary, the three-way handshake ensures that both parties agree on the initial sequence numbers and sets up a reliable communication channel over TCP.",
+        "contexts": [
+          "A TCP connection is opened with a three-way handshake. The client sends a SYN segment carrying its\ninitial sequence number. The server replies with a SYN-ACK segment that acknowledges the client's\nsequence number and carries the server's own initial sequence number. Finally the client sends an ACK\nthat acknowledges the server's sequence number, and the connection is established.\n\nInitial sequence numbers are chosen randomly rather than starting at zero. This prevents segments\nfrom an old connection between the same ports from being mistaken for part of a new one, and it makes\nit harder for an attacker to inject forged segments.\n\nA SYN flood attack sends many SYN segments without completing the handshake, filling the server's\ntable of half-open connections. SYN cookies defend against this by encoding the connection state in the\nserver's initial sequence number, so the server stores nothing until the final ACK arrives."
+        ],
+        "ground_truth": "Client sends SYN with its initial sequence number, server replies SYN-ACK acknowledging it and carrying its own ISN, client sends ACK."
+      },
+      {
+        "id": "tcp05",
+        "question": "Why are TCP initial sequence numbers chosen randomly?",
+        "answer": "TCP initial sequence numbers are chosen randomly rather than starting at zero to prevent segments from an old connection between the same ports from being mistaken for part of a new one. Additionally, randomizing these numbers makes it harder for an attacker to inject forged segments [Source 1].\n\nTo elaborate further:\n- If initial sequence numbers were always set to zero or some predictable value, an attacker could potentially exploit this predictability by sending spoofed packets that appear to be part of an existing connection.\n- By choosing the initial sequence number randomly, each new connection starts with a unique sequence number, reducing the likelihood of such attacks [Source 1].\n\nThis practice enhances security and ensures reliable communication over TCP connections.",
+        "contexts": [
+          "A TCP connection is opened with a three-way handshake. The client sends a SYN segment carrying its\ninitial sequence number. The server replies with a SYN-ACK segment that acknowledges the client's\nsequence number and carries the server's own initial sequence number. Finally the client sends an ACK\nthat acknowledges the server's sequence number, and the connection is established.\n\nInitial sequence numbers are chosen randomly rather than starting at zero. This prevents segments\nfrom an old connection between the same ports from being mistaken for part of a new one, and it makes\nit harder for an attacker to inject forged segments.\n\nA SYN flood attack sends many SYN segments without completing the handshake, filling the server's\ntable of half-open connections. SYN cookies defend against this by encoding the connection state in the\nserver's initial sequence number, so the server stores nothing until the final ACK arrives."
+        ],
+        "ground_truth": "To stop segments from an old connection being mistaken for a new one, and to make injecting forged segments harder."
+      },
+      {
+        "id": "tcp06",
+        "question": "How do SYN cookies defend against SYN floods?",
+        "answer": "SYN cookies defend against SYN flood attacks by encoding the necessary connection state information into the server's initial sequence number [Source 1]. Here’s how it works:\n\n1. **Initial Sequence Number Encoding**: When a client sends a SYN segment, the server responds with a SYN-ACK segment that includes an encoded version of its initial sequence number. This encoding contains enough information to verify the connection state without needing to store additional data on the server side.\n\n2. **Connection State Verification**: Upon receiving the final ACK from the client, the server can decode this information and validate the connection request. If the decoded state matches what the server expects, it proceeds with establishing the full connection; otherwise, it rejects the connection attempt.\n\n3. **No Storage Requirement**: By encoding the necessary information into the initial sequence number, SYN cookies eliminate the need for the server to maintain a table of half-open connections. This significantly reduces memory usage and mitigates the risk associated with SYN flood attacks [Source 1].\n\nIn summary, SYN cookies prevent attackers from overwhelming the server's resources by ensuring that only valid connection requests are processed while minimizing storage requirements on the server side.",
+        "contexts": [
+          "A TCP connection is opened with a three-way handshake. The client sends a SYN segment carrying its\ninitial sequence number. The server replies with a SYN-ACK segment that acknowledges the client's\nsequence number and carries the server's own initial sequence number. Finally the client sends an ACK\nthat acknowledges the server's sequence number, and the connection is established.\n\nInitial sequence numbers are chosen randomly rather than starting at zero. This prevents segments\nfrom an old connection between the same ports from being mistaken for part of a new one, and it makes\nit harder for an attacker to inject forged segments.\n\nA SYN flood attack sends many SYN segments without completing the handshake, filling the server's\ntable of half-open connections. SYN cookies defend against this by encoding the connection state in the\nserver's initial sequence number, so the server stores nothing until the final ACK arrives."
+        ],
+        "ground_truth": "They encode connection state in the server's initial sequence number so the server stores nothing until the final ACK arrives."
+      },
+      {
+        "id": "tcp07",
+        "question": "What triggers fast retransmit?",
+        "answer": "Fast retransmit is triggered when the TCP sender receives three duplicate acknowledgments (ACKs) for data that precedes a specific segment, without waiting for the retransmission timeout to expire [Source 1].\n\nTo elaborate, in the context of TCP reliability mechanisms, fast retransmit helps to quickly recover from packet loss. Specifically, if the receiver sends three or more duplicate ACKs for the same segment (indicating that it has received subsequent segments but is still waiting for a missing one), this triggers the sender to retransmit the missing segment immediately [Source 1]. This mechanism allows TCP to react faster to packet losses than waiting for the regular retransmission timeout, which helps in reducing the overall delay and improving network performance.",
+        "contexts": [
+          "TCP detects loss in two ways. A retransmission timeout fires when an acknowledgement does not arrive\nin time; the timeout is computed from a smoothed estimate of the round-trip time plus four times its\nvariation. Fast retransmit resends a segment as soon as the sender receives three duplicate\nacknowledgements for the data before it, without waiting for the timer."
+        ],
+        "ground_truth": "Receiving three duplicate acknowledgements."
+      },
+      {
+        "id": "tcp08",
+        "question": "How is the TCP retransmission timeout computed?",
+        "answer": "TCP computes the retransmission timeout based on a smoothed estimate of the round-trip time (RTT) plus four times its variation. Specifically, if \\( \\hat{\\text{RTT}} \\) represents the smoothed RTT and \\( \\sigma_{\\text{RTT}} \\) is the estimated deviation of the RTT, then the retransmission timeout (\\( RTO \\)) can be calculated as:\n\n\\[ RTO = \\hat{\\text{RTT}} + 4 \\cdot \\sigma_{\\text{RTT}} \\]\n\nThis formula ensures that TCP waits for a sufficient period to account for both typical and extreme variations in network latency before retransmitting lost data [Source 1].",
+        "contexts": [
+          "TCP detects loss in two ways. A retransmission timeout fires when an acknowledgement does not arrive\nin time; the timeout is computed from a smoothed estimate of the round-trip time plus four times its\nvariation. Fast retransmit resends a segment as soon as the sender receives three duplicate\nacknowledgements for the data before it, without waiting for the timer.",
+          "Congestion control protects the network rather than the receiver. The sender keeps a congestion\nwindow (cwnd), and the amount of data in flight is limited by the smaller of cwnd and the receive\nwindow.\n\nSlow start begins with a small congestion window and doubles it every round-trip time, which is\nexponential growth. When cwnd reaches the slow-start threshold (ssthresh), TCP switches to\ncongestion avoidance and grows the window by about one segment per round-trip time, which is linear\ngrowth.\n\nThis combination is called additive increase, multiplicative decrease (AIMD). On three duplicate\nacknowledgements, TCP Reno halves the congestion window and continues with fast recovery. On a\ntimeout it treats the loss as severe: it sets ssthresh to half the window and restarts slow start from one\nsegment."
+        ],
+        "ground_truth": "From a smoothed round-trip time estimate plus four times its variation."
+      },
+      {
+        "id": "tcp09",
+        "question": "What does the receive window advertise?",
+        "answer": "The receive window advertised by the receiver indicates the amount of free buffer space available for incoming data. According to [Source 1], \"the receiver advertises a receive window in every segment: the amount of free buffer space it has.\" This information helps the sender manage its data transmission rate, ensuring that the receiver can handle the incoming traffic without being overwhelmed.\n\nThis mechanism is crucial for flow control, as described in the context, where it states, \"The sender never has more unacknowledged data in flight than the advertised window.\" If the receive window is set to zero, the sender will stop sending data and periodically send small window probes to check if buffer space becomes available again.\n\nIn summary, the receive window provides critical feedback to the sender about the receiver's capacity to handle incoming data. [Source 1]",
+        "contexts": [
+          "Flow control stops a fast sender from overwhelming a slow receiver. The receiver advertises a receive\nwindow in every segment: the amount of free buffer space it has. The sender never has more\nunacknowledged data in flight than the advertised window.\n\nIf the receiver advertises a window of zero, the sender stops and periodically sends a small window\nprobe so it learns when space opens up again.",
+          "Congestion control protects the network rather than the receiver. The sender keeps a congestion\nwindow (cwnd), and the amount of data in flight is limited by the smaller of cwnd and the receive\nwindow.\n\nSlow start begins with a small congestion window and doubles it every round-trip time, which is\nexponential growth. When cwnd reaches the slow-start threshold (ssthresh), TCP switches to\ncongestion avoidance and grows the window by about one segment per round-trip time, which is linear\ngrowth.\n\nThis combination is called additive increase, multiplicative decrease (AIMD). On three duplicate\nacknowledgements, TCP Reno halves the congestion window and continues with fast recovery. On a\ntimeout it treats the loss as severe: it sets ssthresh to half the window and restarts slow start from one\nsegment."
+        ],
+        "ground_truth": "The amount of free buffer space the receiver has."
+      },
+      {
+        "id": "tcp10",
+        "question": "What is the difference between flow control and congestion control?",
+        "answer": "Flow control and congestion control are two distinct mechanisms in TCP (Transmission Control Protocol) that serve different purposes.\n\n**Flow control**: This mechanism focuses on managing data transfer rates to prevent a fast sender from overwhelming a slow receiver. The receiver advertises its available buffer space through a \"receive window\" in each segment it sends. If the receive window is zero, indicating no free buffer space, the sender will stop sending and periodically send small window probes to check when more buffer space becomes available [Source 1].\n\n**Congestion control**: This mechanism aims to protect the network from becoming congested by limiting the amount of data in flight. It uses a \"congestion window\" (cwnd) that is set based on both the receive window and the network's ability to handle additional traffic. The sender can only send up to the minimum value between cwnd and the receive window [Source 2].\n\nThe key differences are:\n1. **Purpose**: Flow control manages data transfer rates for a single connection, while congestion control aims to prevent network-wide congestion.\n2. **Mechanism**: Flow control uses the receiver's advertised buffer space, whereas congestion control adjusts based on network conditions inferred from acknowledgments and timeouts.\n\nIn summary, flow control is about managing the rate of data transmission between two endpoints, ensuring that the sender does not overwhelm the receiver. Congestion control, on the other hand, manages the overall amount of data in transit to prevent network congestion [Source 1 & Source 2].",
+        "contexts": [
+          "Flow control stops a fast sender from overwhelming a slow receiver. The receiver advertises a receive\nwindow in every segment: the amount of free buffer space it has. The sender never has more\nunacknowledged data in flight than the advertised window.\n\nIf the receiver advertises a window of zero, the sender stops and periodically sends a small window\nprobe so it learns when space opens up again.",
+          "Congestion control protects the network rather than the receiver. The sender keeps a congestion\nwindow (cwnd), and the amount of data in flight is limited by the smaller of cwnd and the receive\nwindow.\n\nSlow start begins with a small congestion window and doubles it every round-trip time, which is\nexponential growth. When cwnd reaches the slow-start threshold (ssthresh), TCP switches to\ncongestion avoidance and grows the window by about one segment per round-trip time, which is linear\ngrowth.\n\nThis combination is called additive increase, multiplicative decrease (AIMD). On three duplicate\nacknowledgements, TCP Reno halves the congestion window and continues with fast recovery. On a\ntimeout it treats the loss as severe: it sets ssthresh to half the window and restarts slow start from one\nsegment."
+        ],
+        "ground_truth": "Flow control protects a slow receiver (receive window); congestion control protects the network (congestion window)."
+      },
+      {
+        "id": "tcp11",
+        "question": "How does the congestion window grow during slow start?",
+        "answer": "During slow start, the congestion window (cwnd) grows exponentially. The growth rate doubles the cwnd every round-trip time (RTT). This exponential increase continues until the cwnd reaches the slow-start threshold (ssthresh).\n\n[Source 1] explains that \"Slow start begins with a small congestion window and doubles it every round-trip time, which is exponential growth.\"",
+        "contexts": [
+          "Congestion control protects the network rather than the receiver. The sender keeps a congestion\nwindow (cwnd), and the amount of data in flight is limited by the smaller of cwnd and the receive\nwindow.\n\nSlow start begins with a small congestion window and doubles it every round-trip time, which is\nexponential growth. When cwnd reaches the slow-start threshold (ssthresh), TCP switches to\ncongestion avoidance and grows the window by about one segment per round-trip time, which is linear\ngrowth.\n\nThis combination is called additive increase, multiplicative decrease (AIMD). On three duplicate\nacknowledgements, TCP Reno halves the congestion window and continues with fast recovery. On a\ntimeout it treats the loss as severe: it sets ssthresh to half the window and restarts slow start from one\nsegment."
+        ],
+        "ground_truth": "It doubles every round-trip time (exponential growth) until it reaches ssthresh."
+      },
+      {
+        "id": "tcp12",
+        "question": "What does TCP Reno do after a timeout?",
+        "answer": "After a timeout, TCP Reno sets the congestion window (cwnd) to half of its current value and then restarts slow start from one segment [Source 1].\n\nThis process is part of the fast recovery mechanism. Specifically, when a timeout occurs, indicating severe loss, TCP Reno reduces cwnd by halving it and then proceeds with slow start, starting from a single segment rather than continuing congestion avoidance phase.\n\nFor example, if before the timeout, cwnd was at 32 segments, after the timeout, it would be set to 16 (half of 32), and TCP would begin doubling this value again in the slow start phase [Source 1].",
+        "contexts": [
+          "Congestion control protects the network rather than the receiver. The sender keeps a congestion\nwindow (cwnd), and the amount of data in flight is limited by the smaller of cwnd and the receive\nwindow.\n\nSlow start begins with a small congestion window and doubles it every round-trip time, which is\nexponential growth. When cwnd reaches the slow-start threshold (ssthresh), TCP switches to\ncongestion avoidance and grows the window by about one segment per round-trip time, which is linear\ngrowth.\n\nThis combination is called additive increase, multiplicative decrease (AIMD). On three duplicate\nacknowledgements, TCP Reno halves the congestion window and continues with fast recovery. On a\ntimeout it treats the loss as severe: it sets ssthresh to half the window and restarts slow start from one\nsegment.",
+          "TCP detects loss in two ways. A retransmission timeout fires when an acknowledgement does not arrive\nin time; the timeout is computed from a smoothed estimate of the round-trip time plus four times its\nvariation. Fast retransmit resends a segment as soon as the sender receives three duplicate\nacknowledgements for the data before it, without waiting for the timer."
+        ],
+        "ground_truth": "Sets ssthresh to half the window and restarts slow start from one segment."
+      },
+      {
+        "id": "tcp13",
+        "question": "Why does TCP have a TIME_WAIT state?",
+        "answer": "TCP has a TIME_WAIT state to ensure reliable closure of connections. Specifically, this state serves two main purposes:\n\n1. **Retransmission of Final ACK**: When one side sends its final FIN segment and the other side acknowledges it (ACK), there might be a delay in receiving this acknowledgment. The TIME_WAIT state allows for retransmitting the final ACK if it is lost during transmission.\n\n2. **Avoiding Conflicts with New Connections**: By waiting for twice the maximum segment lifetime, TCP ensures that any delayed segments from the old connection are cleared out before the same port pair can be reused for a new connection. This prevents potential conflicts or data corruption when establishing a new session.\n\n[Source 1] explains these points directly: \"Closing both directions normally takes four segments: FIN, ACK, FIN, ACK.\" It also states that \"TIME_WAIT ensures that the final ACK can be retransmitted if it is lost and that delayed segments from the old connection die out before the same port pair is reused.\"",
+        "contexts": [
+          "Each direction of a TCP connection is closed separately. The side that finishes sending sends a FIN\nsegment, and the other side acknowledges it. Closing both directions normally takes four segments:\nFIN, ACK, FIN, ACK.\n\nThe side that closes first enters the TIME_WAIT state after the exchange and waits for twice the\nmaximum segment lifetime before releasing the connection. TIME_WAIT ensures that the final ACK can\nbe retransmitted if it is lost and that delayed segments from the old connection die out before the same\nport pair is reused."
+        ],
+        "ground_truth": "So the final ACK can be retransmitted if lost and delayed segments from the old connection die out before the port pair is reused."
+      },
+      {
+        "id": "tcp14",
+        "question": "How does BBR detect congestion differently from loss-based TCP?",
+        "answer": "BBR (Bottleneck Bandwidth and Round-trip propagation time) detects congestion by directly estimating the bottleneck bandwidth and round-trip time, rather than relying on packet loss as a signal of congestion. This is different from traditional loss-based TCP algorithms like TCP CUBIC, which use packet loss to infer congestion.\n\nIn contrast, BBR treats packet loss more passively; it does not actively rely on loss events to adjust its behavior [Source 1]. Instead, BBR continuously monitors the network conditions and adjusts its data transmission rate based on these direct measurements. This approach allows BBR to adapt more efficiently to high-bandwidth, long-delay links compared to traditional TCP variants that might underutilize such links due to overly cautious loss-based congestion control mechanisms.\n\nFor further reading, you can look into how BBR specifically implements its bandwidth and round-trip time estimation algorithms [Source 2].",
+        "contexts": [
+          "TCP CUBIC, the default in Linux, replaces the linear growth of congestion avoidance with a cubic\nfunction of the time since the last loss, which uses high-bandwidth, long-delay links more efficiently.\nBBR, developed at Google, estimates the bottleneck bandwidth and round-trip time directly instead of\ntreating packet loss as the signal of congestion.",
+          "Congestion control protects the network rather than the receiver. The sender keeps a congestion\nwindow (cwnd), and the amount of data in flight is limited by the smaller of cwnd and the receive\nwindow.\n\nSlow start begins with a small congestion window and doubles it every round-trip time, which is\nexponential growth. When cwnd reaches the slow-start threshold (ssthresh), TCP switches to\ncongestion avoidance and grows the window by about one segment per round-trip time, which is linear\ngrowth.\n\nThis combination is called additive increase, multiplicative decrease (AIMD). On three duplicate\nacknowledgements, TCP Reno halves the congestion window and continues with fast recovery. On a\ntimeout it treats the loss as severe: it sets ssthresh to half the window and restarts slow start from one\nsegment."
+        ],
+        "ground_truth": "It estimates bottleneck bandwidth and round-trip time directly instead of treating packet loss as the congestion signal."
+      },
+      {
+        "id": "ml01",
+        "question": "ما هو غطاء ماركوف لعقدة في شبكة بايزية؟",
+        "answer": "غطاء ماركوف لعقدة في شبكة بايزية يتألف من العقدة نفسها وآبائها (العقد التي تؤثر عليها)، وأبنائها (العقد التي تؤثر عليه)، والآباء الآخرين لأبنائها (الأب المشترك).\n\nوفقًا للمادة المقدمة [Source 1], يمكن أن نقول:\n\n\"للعقدة 'المراقب' في الشبكة، فإن غطاء ماركوفها هو {السرقة, الزلازل, يان جون ي来电询问助手：请问在贝叶斯网络中，什么是马尔可夫毯？",
+        "contexts": [
+          "The Markov blanket of a node consists of its parents, its children, and the other parents of its children\n(its co-parents). Given its Markov blanket, a node is conditionally independent of every other node in the\nnetwork.\n\nThe Markov blanket matters in practice because it is all the information needed to update one variable.\nGibbs sampling, for example, resamples each variable from its distribution conditioned only on its\nMarkov blanket, which keeps every step cheap even in a large network.\n\nIn the alarm network, the Markov blanket of Alarm is {Burglary, Earthquake, JohnCalls, MaryCalls}. The\nMarkov blanket of Burglary is {Alarm, Earthquake}, because Earthquake is a co-parent of Alarm."
+        ],
+        "ground_truth": "آباؤها وأبناؤها والآباء الآخرون لأبنائها."
+      },
+      {
+        "id": "ml02",
+        "question": "¿Cómo funciona el saludo de tres vías de TCP?",
+        "answer": "El saludo de tres vías de TCP se realiza en los siguientes pasos:\n\n1. El cliente envía un segmento SYN (Synchronize) que contiene su número de secuencia inicial.\n2. El servidor responde con un segmento SYN-ACK, que reconoce el número de secuencia del cliente y presenta su propio número de secuencia inicial.\n3. El cliente finaliza el proceso enviando un ACK (Acknowledgment) que confirma la recepción del número de secuencia del servidor.\n\nEstos pasos permiten establecer una conexión TCP segura y evitar confusiones con segmentos de conexiones anteriores entre los mismos puertos [Source 1].",
+        "contexts": [
+          "A TCP connection is opened with a three-way handshake. The client sends a SYN segment carrying its\ninitial sequence number. The server replies with a SYN-ACK segment that acknowledges the client's\nsequence number and carries the server's own initial sequence number. Finally the client sends an ACK\nthat acknowledges the server's sequence number, and the connection is established.\n\nInitial sequence numbers are chosen randomly rather than starting at zero. This prevents segments\nfrom an old connection between the same ports from being mistaken for part of a new one, and it makes\nit harder for an attacker to inject forged segments.\n\nA SYN flood attack sends many SYN segments without completing the handshake, filling the server's\ntable of half-open connections. SYN cookies defend against this by encoding the connection state in the\nserver's initial sequence number, so the server stores nothing until the final ACK arrives."
+        ],
+        "ground_truth": "El cliente envía SYN, el servidor responde SYN-ACK y el cliente envía ACK."
+      },
+      {
+        "id": "ml03",
+        "question": "Quelle est la différence entre l'algorithme de Viterbi et l'algorithme forward ?",
+        "answer": "L'algorithme de Viterbi et l'algorithme forward sont deux méthodes importantes utilisées dans les modèles cachés de Markov (HMM), mais ils ont des objectifs et des approches différents.\n\n1. **Objectif**:\n   - L'**algorithme forward** est utilisé pour le filtrage, c'est-à-dire pour calculer la distribution conditionnelle de l'état à un certain temps \\( t \\) en utilisant les observations jusqu'à ce temps [Source 2].\n   - L'**algorithme Viterbi**, d'autre part, sert à trouver la séquence d'états la plus probable qui a engendré une série donnée de observations [Source 1].\n\n2. **Approche et Structure**:\n   - L'**algorithme forward** utilise un processus récursif pour prédire l'état suivant en utilisant le modèle de transition, puis met à jour cette prédiction par la multiplication par la probabilité de l'observation actuelle et une normalisation [Source 2].\n   - L'**algorithme Viterbi**, quant à lui, utilise un programme dynamique pour trouver la séquence d'états la plus probable. Il calcule le maximum des probabilités plutôt que la somme, en conservant non seulement les probabilités mais aussi des pointeurs de retour (back-pointers) qui permettent de reconstruire la séquence finale [Source 1].\n\n3. **Complexité et Mémoire**:\n   - L'**algorithme forward** a une complexité temporelle et spatiale proportionnelle à \\( N^2 \\) par étape, mais ne nécessite pas de stocker l'historique complet des messages [Source 2].\n   - L'**algorithme Viterbi** a une complexité temporelle d'ordre \\( O(N^2 t) \\) et une complexité en espace d'ordre \\( O(N t) \\), nécessitant la conservation de back-pointers pour reconstruire la séquence finale [Source 1].\n\n4. **Pratique Numérique**:\n   - Pour des séquences longues, l'algorithme forward utilise souvent des sommes de logarithmes pour éviter les problèmes numériques d'underflow (perte de précision) [Source 2].\n   - L'algorithme Viterbi peut également utiliser cette technique, mais cela n'est pas explicitement mentionné dans le document fourni.\n\nEn résumé, l'algorithme forward est utilisé pour la prédiction et le filtrage des distributions d'états, tandis que l'algorithme Viterbi trouve la séquence d'états la plus probable. Les deux ont leurs propres avantages en termes de complexité et de praticité [Source 1; Source 2].",
+        "contexts": [
+          "The most likely sequence of states is not the same as the sequence of individually most likely states.\nThe Viterbi algorithm finds the most likely full sequence with dynamic programming.\n\nViterbi has the same structure as the forward algorithm, but it replaces the sum over previous states\nwith a maximum. For every state at every time step it keeps the probability of the best path ending in\nthat state and a back-pointer to the predecessor on that path. At the end, the algorithm follows the\nback-pointers from the best final state to recover the whole sequence.\n\nViterbi runs in O(N^2 t) time and needs O(N t) memory for the back-pointers. In practice probabilities are\nmultiplied as sums of logarithms to avoid numerical underflow on long sequences.",
+          "Filtering is done recursively by the forward algorithm. The forward message f_1:t is the filtered\ndistribution at time t. Each update has two steps: first predict by pushing the previous belief through the\ntransition model, then update by multiplying by the probability of the new evidence and normalizing.\n\nThe forward algorithm takes time and space proportional to N^2 per step, and it does not need to store\nthe history: each update uses only the previous message. This constant cost per step is what makes\nHMMs practical for online tracking."
+        ],
+        "ground_truth": "Viterbi remplace la somme par un maximum et garde des pointeurs arrière."
+      },
+      {
+        "id": "na01",
+        "question": "What is the time complexity of Dijkstra's shortest path algorithm?",
+        "answer": "I could not find enough information about this in the uploaded course materials. Try rephrasing the question, check that the relevant document has finished indexing, or ask your instructor.",
+        "contexts": [],
+        "ground_truth": "Not covered by the course materials."
+      },
+      {
+        "id": "na02",
+        "question": "Who invented the transformer architecture used in large language models?",
+        "answer": "I could not find enough information about this in the uploaded course materials. Try rephrasing the question, check that the relevant document has finished indexing, or ask your instructor.",
+        "contexts": [],
+        "ground_truth": "Not covered by the course materials."
+      },
+      {
+        "id": "na03",
+        "question": "What port number does HTTPS use by default?",
+        "answer": "I could not find enough information about this in the uploaded course materials. Try rephrasing the question, check that the relevant document has finished indexing, or ask your instructor.",
+        "contexts": [],
+        "ground_truth": "Not covered by the course materials."
+      }
+    ]
+  }
+}

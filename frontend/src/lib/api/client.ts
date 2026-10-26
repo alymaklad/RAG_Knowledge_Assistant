@@ -32,6 +32,8 @@ export class ApiError extends Error {
 }
 
 const UNSAFE = new Set(["POST", "PUT", "PATCH", "DELETE"]);
+// Endpoints where a 401 means bad credentials, not an expired session.
+const NO_REFRESH = ["/api/auth/login", "/api/auth/register", "/api/auth/refresh", "/api/auth/logout"];
 
 export function readCookie(name: string): string | undefined {
   return document.cookie
@@ -89,7 +91,7 @@ export async function apiFetch(path: string, init: RequestInit = {}): Promise<Re
       headers: { Accept: "application/json", ...authHeaders(method), ...init.headers },
     });
   let res = await send();
-  if (res.status === 401 && !path.startsWith("/api/auth/") && (await refreshSession())) {
+  if (res.status === 401 && !NO_REFRESH.includes(path) && (await refreshSession())) {
     res = await send();
   }
   if (!res.ok) throw await errorFrom(res);

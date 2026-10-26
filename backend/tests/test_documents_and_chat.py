@@ -2,6 +2,7 @@ from collections.abc import Callable
 from contextlib import AbstractAsyncContextManager
 
 import httpx
+from fastapi import FastAPI
 
 from app.services.llm.client import FakeLLM
 from tests.helpers import create_course, make_pdf, parse_sse, register, upload
@@ -198,3 +199,38 @@ async def test_original_file_is_served_to_members_only(make_client: ClientFactor
         assert resp.headers["content-type"] == "application/pdf"
         assert resp.content == BAYES_PDF
         assert (await other.get(url)).status_code == 404
+
+
+async def test_rerank_threshold_abstains_without_llm_call(
+    app: FastAPI, client: httpx.AsyncClient, fake_llm: FakeLLM
+) -> None:
+    await register(client)
+    course_id = await create_course(client)
+    await upload(client, course_id, "week6.pdf", BAYES_PDF)
+    services = app.state.services
+    original = services.settings
+    services.settings = original.model_copy(
+        update={"rerank_enabled": True, "rerank_threshold": 0.5}
+    )
+    try:
+        off_topic = parse_sse(
+            (
+                await client.post(
+                    "/api/chat",
+                    json={"course_id": course_id, "message": "Dijkstra shortest path runtime"},
+                )
+            ).text
+        )
+        assert off_topic[1] == ("sources", [])
+        assert fake_llm.calls == []
+
+        on_topic = parse_sse(
+            (
+                await client.post(
+                    "/api/chat", json={"course_id": course_id, "message": "Markov blanket node"}
+                )
+            ).text
+        )
+        assert on_topic[1][1], "relevant passages pass the threshold"
+    finally:
+        services.settings = original

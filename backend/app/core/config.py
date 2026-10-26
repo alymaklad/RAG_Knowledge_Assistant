@@ -51,9 +51,15 @@ class Settings(BaseSettings):
     # Retrieval
     retrieval_top_k: int = 20
     rerank_top_n: int = 5
-    hybrid_search: bool = False
-    rerank_enabled: bool = False
-    score_threshold: float | None = None
+    hybrid_search: bool = True
+    rerank_enabled: bool = True
+    # Reranker (0-1 sigmoid) score below which passages are dropped. Calibrated on the eval set:
+    # lowest answerable top score 0.386, highest unanswerable 0.011 (eval/RESULTS.md).
+    rerank_threshold: float | None = 0.1
+    score_threshold: float | None = None  # raw cosine; dense-only search without reranking
+    multi_query: bool = False
+    multi_query_count: int = 3
+    query_rewrite: bool = True  # make follow-up questions standalone before retrieval
     history_turns: int = 4
 
     # Uploads / ingestion

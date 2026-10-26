@@ -13,12 +13,14 @@ from app.services.llm.prompts import (
     build_user_message,
     format_context,
 )
+from app.services.retrieval.query import rewrite_standalone
 from app.services.retrieval.retriever import RetrievedChunk, retrieve
 
 
 @dataclass(slots=True)
 class RagEvent:
-    kind: Literal["sources", "token", "usage"]
+    kind: Literal["query", "sources", "token", "usage"]
+    query: str | None = None
     sources: list[RetrievedChunk] | None = None
     token: str | None = None
     usage: Usage | None = None
@@ -33,8 +35,12 @@ async def stream_answer(
     document_ids: list[uuid.UUID] | None = None,
 ) -> AsyncIterator[RagEvent]:
     settings = services.settings
+    search_query = question
+    if history and settings.query_rewrite:
+        search_query = await rewrite_standalone(services.llm, history, question)
+        yield RagEvent("query", query=search_query)
     chunks = await retrieve(
-        services, course_id=course_id, query=question, document_ids=document_ids
+        services, course_id=course_id, query=search_query, document_ids=document_ids
     )
     yield RagEvent("sources", sources=chunks)
 

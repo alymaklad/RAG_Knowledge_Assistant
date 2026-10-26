@@ -158,7 +158,9 @@ async def chat(
                 history=history,
                 document_ids=body.document_ids,
             ):
-                if ev.kind == "sources" and ev.sources is not None:
+                if ev.kind == "query" and ev.query:
+                    yield sse("query", {"query": ev.query})
+                elif ev.kind == "sources" and ev.sources is not None:
                     sources = ev.sources
                     yield sse(
                         "sources",

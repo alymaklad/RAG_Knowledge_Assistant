@@ -118,6 +118,12 @@ class FakeLLM:
 
     def __init__(self) -> None:
         self.json_responders: dict[str, Callable[[list[Message]], dict[str, Any]]] = {}
+        self.text_responders: dict[str, Callable[[list[Message]], str]] = {
+            # Query rewriting: echo the follow-up question back as the standalone query.
+            "standalone search queries": lambda m: (
+                m[-1]["content"].split("Follow-up question:", 1)[-1].strip()
+            ),
+        }
         self.calls: list[list[Message]] = []
 
     def _answer(self, messages: list[Message]) -> str:
@@ -158,6 +164,10 @@ class FakeLLM:
                 if marker in system:
                     return Completion(json.dumps(responder(messages)), None)
             return Completion("{}", None)
+        system = messages[0]["content"]
+        for marker, text_responder in self.text_responders.items():
+            if marker in system:
+                return Completion(text_responder(messages), None)
         return Completion(self._answer(messages), None)
 
     async def aclose(self) -> None:

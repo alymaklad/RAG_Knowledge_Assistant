@@ -1,0 +1,17 @@
+# NVIDIA GPU for the embedder (BGE-m3 + reranker), ~20x faster than CPU.
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d --build embedder
+# Needs the NVIDIA driver on the host (Docker Desktop with WSL2, or nvidia-container-toolkit).
+services:
+  embedder:
+    build:
+      context: ./embedder
+      args:
+        TORCH_INDEX: https://download.pytorch.org/whl/cu128
+    image: courseai-embedder-gpu
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
