@@ -8,6 +8,7 @@ from app.services.embeddings.client import (
     HashEmbeddingClient,
     HttpEmbeddingClient,
 )
+from app.services.llm.client import FakeLLM, LLMClient, OpenAICompatibleLLM
 from app.services.vectorstore.qdrant import VectorStore, make_client
 
 
@@ -16,10 +17,12 @@ class Services:
     settings: Settings
     embedder: EmbeddingClient
     vectors: VectorStore
+    llm: LLMClient
 
     async def aclose(self) -> None:
         await self.embedder.aclose()
         await self.vectors.client.close()
+        await self.llm.aclose()
 
 
 def build_services(settings: Settings) -> Services:
@@ -33,4 +36,14 @@ def build_services(settings: Settings) -> Services:
         settings.qdrant_collection,
         settings.embedding_dim,
     )
-    return Services(settings=settings, embedder=embedder, vectors=vectors)
+    llm: LLMClient
+    if settings.llm_provider == "fake":
+        llm = FakeLLM()
+    else:
+        llm = OpenAICompatibleLLM(
+            settings.llm_base_url,
+            settings.llm_api_key,
+            settings.llm_model,
+            settings.llm_timeout_seconds,
+        )
+    return Services(settings=settings, embedder=embedder, vectors=vectors, llm=llm)

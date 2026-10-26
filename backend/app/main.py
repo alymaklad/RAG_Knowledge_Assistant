@@ -2,11 +2,12 @@ import logging
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
+from arq import create_pool
+from arq.connections import RedisSettings
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from redis.asyncio import Redis
 
-from app.api.routes import health
+from app.api.routes import auth, chat, courses, documents, health
 from app.core.config import Settings, get_settings
 from app.db.session import dispose_engine
 from app.services.container import build_services
@@ -21,17 +22,18 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         app.state.services = build_services(settings)
-        app.state.redis = (
-            Redis.from_url(settings.redis_url) if settings.ingest_mode == "queue" else None
-        )
+        app.state.arq = None
+        if settings.ingest_mode == "queue":
+            app.state.arq = await create_pool(RedisSettings.from_dsn(settings.redis_url))
+        app.state.redis = app.state.arq
         try:
             await app.state.services.vectors.ensure_collection()
         except Exception:  # Qdrant may still be starting; /ready reports it
             logger.exception("Could not ensure Qdrant collection at startup")
         yield
         await app.state.services.aclose()
-        if app.state.redis is not None:
-            await app.state.redis.aclose()
+        if app.state.arq is not None:
+            await app.state.arq.aclose()
         await dispose_engine()
 
     app = FastAPI(title="Course AI Assistant API", version="0.1.0", lifespan=lifespan)
@@ -46,7 +48,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             allow_headers=["*"],
         )
 
-    app.include_router(health.router, prefix="/api")
+    for module in (health, auth, courses, documents, chat):
+        app.include_router(module.router, prefix="/api")
     return app
 
 

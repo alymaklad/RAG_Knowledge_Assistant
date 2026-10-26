@@ -29,3 +29,5 @@ uploads/
 data/
 *.log
 backend/tests/.uploads/
+eval/corpus/pdf/
+.claude/

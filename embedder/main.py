@@ -17,7 +17,7 @@ import threading
 from collections import Counter
 from typing import Any
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
 
@@ -30,7 +30,12 @@ RERANK_MODEL_NAME = os.getenv("RERANK_MODEL", "BAAI/bge-reranker-v2-m3")
 MAX_LENGTH = int(os.getenv("EMBED_MAX_LENGTH", "8192"))
 BATCH_SIZE = int(os.getenv("EMBED_BATCH_SIZE", "16"))
 DIM = int(os.getenv("EMBEDDING_DIM", "1024"))
+RERANK_PRELOAD = os.getenv("RERANK_PRELOAD", "true").lower() == "true"
 SPARSE_VOCAB = 250_002
+
+
+class RerankerUnavailable(RuntimeError):
+    pass
 
 
 class EmbedRequest(BaseModel):
@@ -61,6 +66,7 @@ class RerankResponse(BaseModel):
 class HashBackend:
     name = "hash"
     device = "cpu"
+    reranker_state = "ready"
     _token_re = re.compile(r"\w+", re.UNICODE)
 
     @staticmethod
@@ -110,9 +116,7 @@ class BGEM3Backend:
         self.dtype = torch.float16 if self.device == "cuda" else torch.float32
         logger.info("Loading %s on %s", MODEL_NAME, self.device)
         self.tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-        self.model = (
-            AutoModel.from_pretrained(MODEL_NAME, dtype=self.dtype).to(self.device).eval()
-        )
+        self.model = AutoModel.from_pretrained(MODEL_NAME, dtype=self.dtype).to(self.device).eval()
         hidden = self.model.config.hidden_size
         self.sparse_linear = torch.nn.Linear(hidden, 1)
         state = torch.load(hf_hub_download(MODEL_NAME, "sparse_linear.pt"), map_location="cpu")
@@ -126,13 +130,18 @@ class BGEM3Backend:
         }
         self._reranker: Any = None
         self._rerank_tokenizer: Any = None
-        self._lock = threading.Lock()
+        self.reranker_state = "not loaded"
+        # Separate locks: a slow reranker download must never block embedding.
+        self._embed_lock = threading.Lock()
+        self._rerank_lock = threading.Lock()
+        if RERANK_PRELOAD:
+            threading.Thread(target=self._load_reranker, daemon=True).start()
 
     def embed(self, texts: list[str], sparse: bool) -> tuple[list[list[float]], list[SparseOut]]:
         torch = self.torch
         dense_out: list[list[float]] = []
         sparse_out: list[SparseOut] = []
-        with self._lock, torch.inference_mode():
+        with self._embed_lock, torch.inference_mode():
             for i in range(0, len(texts), BATCH_SIZE):
                 batch = texts[i : i + BATCH_SIZE]
                 enc = self.tokenizer(
@@ -152,7 +161,8 @@ class BGEM3Backend:
                 mask = enc["attention_mask"].cpu()
                 for row_ids, row_w, row_m in zip(ids, weights, mask, strict=True):
                     acc: dict[int, float] = {}
-                    for tid, w, m in zip(row_ids.tolist(), row_w.tolist(), row_m.tolist(), strict=True):
+                    cols = zip(row_ids.tolist(), row_w.tolist(), row_m.tolist(), strict=True)
+                    for tid, w, m in cols:
                         if not m or w <= 0 or tid in self.unused_ids:
                             continue
                         if w > acc.get(tid, 0.0):
@@ -163,21 +173,30 @@ class BGEM3Backend:
     def _load_reranker(self) -> None:
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-        logger.info("Loading reranker %s", RERANK_MODEL_NAME)
-        self._rerank_tokenizer = AutoTokenizer.from_pretrained(RERANK_MODEL_NAME)
-        self._reranker = (
-            AutoModelForSequenceClassification.from_pretrained(
-                RERANK_MODEL_NAME, dtype=self.dtype
-            )
-            .to(self.device)
-            .eval()
-        )
+        with self._rerank_lock:
+            if self._reranker is not None:
+                return
+            self.reranker_state = "loading"
+            logger.info("Loading reranker %s", RERANK_MODEL_NAME)
+            try:
+                tokenizer = AutoTokenizer.from_pretrained(RERANK_MODEL_NAME)
+                model = AutoModelForSequenceClassification.from_pretrained(
+                    RERANK_MODEL_NAME, dtype=self.dtype
+                )
+            except Exception:
+                logger.exception("Reranker failed to load")
+                self.reranker_state = "failed"
+                return
+            self._rerank_tokenizer = tokenizer
+            self._reranker = model.to(self.device).eval()
+            self.reranker_state = "ready"
+            logger.info("Reranker ready")
 
     def rerank(self, query: str, documents: list[str]) -> list[float]:
         torch = self.torch
-        with self._lock, torch.inference_mode():
-            if self._reranker is None:
-                self._load_reranker()
+        if self._reranker is None:
+            raise RerankerUnavailable(self.reranker_state)
+        with self._rerank_lock, torch.inference_mode():
             scores: list[float] = []
             for i in range(0, len(documents), BATCH_SIZE):
                 pairs = [[query, d] for d in documents[i : i + BATCH_SIZE]]
@@ -201,6 +220,7 @@ async def health() -> dict[str, Any]:
         "model": MODEL_NAME if backend.name == "bge" else None,
         "device": backend.device,
         "dim": DIM,
+        "reranker": backend.reranker_state,
     }
 
 
@@ -214,5 +234,9 @@ async def embed(req: EmbedRequest) -> EmbedResponse:
 async def rerank(req: RerankRequest) -> RerankResponse:
     if not req.documents:
         return RerankResponse(scores=[])
-    scores = await run_in_threadpool(backend.rerank, req.query, req.documents)
+    try:
+        scores = await run_in_threadpool(backend.rerank, req.query, req.documents)
+    except RerankerUnavailable as exc:
+        # Callers fall back to retrieval order; the model may still be downloading.
+        raise HTTPException(503, f"Reranker {exc}") from exc
     return RerankResponse(scores=scores)

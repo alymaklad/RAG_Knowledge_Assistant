@@ -15,12 +15,15 @@ os.environ.update(
         "LLM_PROVIDER": "fake",
         "INGEST_MODE": "inline",
         "CHUNK_TOKENIZER": "approx",
+        "CHUNK_SIZE_TOKENS": "200",
+        "CHUNK_OVERLAP_TOKENS": "20",
         "RATE_LIMIT_ENABLED": "false",
         "UPLOAD_DIR": os.path.join(os.path.dirname(__file__), ".uploads"),
     }
 )
 
-from collections.abc import AsyncIterator  # noqa: E402
+from collections.abc import AsyncIterator, Callable  # noqa: E402
+from contextlib import AbstractAsyncContextManager, asynccontextmanager  # noqa: E402
 
 import asyncpg  # noqa: E402
 import httpx  # noqa: E402
@@ -32,6 +35,7 @@ from app.core.config import get_settings  # noqa: E402
 from app.db.models import Base  # noqa: E402
 from app.db.session import get_engine  # noqa: E402
 from app.main import create_app  # noqa: E402
+from app.services.llm.client import FakeLLM  # noqa: E402
 
 
 async def _ensure_database(url: str) -> None:
@@ -71,7 +75,29 @@ async def app(database: None) -> AsyncIterator[FastAPI]:
 
 
 @pytest.fixture
-async def client(app: FastAPI) -> AsyncIterator[httpx.AsyncClient]:
-    transport = httpx.ASGITransport(app=app)
-    async with httpx.AsyncClient(transport=transport, base_url="http://testserver") as c:
+def fake_llm(app: FastAPI) -> FakeLLM:
+    llm = app.state.services.llm
+    assert isinstance(llm, FakeLLM)
+    llm.calls.clear()
+    return llm
+
+
+@pytest.fixture
+def make_client(
+    app: FastAPI,
+) -> Callable[[], AbstractAsyncContextManager[httpx.AsyncClient]]:
+    @asynccontextmanager
+    async def factory() -> AsyncIterator[httpx.AsyncClient]:
+        transport = httpx.ASGITransport(app=app)
+        async with httpx.AsyncClient(transport=transport, base_url="http://testserver") as c:
+            yield c
+
+    return factory
+
+
+@pytest.fixture
+async def client(
+    make_client: Callable[[], AbstractAsyncContextManager[httpx.AsyncClient]],
+) -> AsyncIterator[httpx.AsyncClient]:
+    async with make_client() as c:
         yield c

@@ -31,7 +31,9 @@ jobs:
       - run: uv run pytest -q
       - name: Embedder smoke tests (hash backend)
         working-directory: embedder
-        run: ../backend/.venv/bin/python -m pytest -q test_main.py
+        run: |
+          ../backend/.venv/bin/python -m ruff check .
+          ../backend/.venv/bin/python -m pytest -q test_main.py
 
   migrations:
     runs-on: ubuntu-latest
@@ -55,3 +57,20 @@ jobs:
       - run: uv run alembic upgrade head
       - run: uv run alembic check
       - run: uv run alembic downgrade base
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npx tsc --noEmit -p .
+      - run: npm test
+      - run: npm run build
