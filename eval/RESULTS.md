@@ -72,3 +72,21 @@ uv run --project backend python eval/build_corpus.py
 uv run --project backend python eval/run_eval.py --configs baseline,hybrid,rerank,hybrid_rerank,hybrid_rerank_mq
 uv run --project backend python eval/run_eval.py --configs hybrid_rerank --generate
 ```
+
+## Load test
+
+`eval/locustfile.py`, stack in Docker Compose on one laptop (RTX 4070, 8 GB), demo course,
+rate limits off for the run. Raw CSVs: `eval/reports/load*_stats.csv`.
+
+| Setup | Users | Questions/s | Failures | Stream opened (p50) | First token p50 / p95 |
+|---|---|---|---|---|---|
+| Real pipeline, local Qwen 7B | 6 | 0.08 | 0 | 52 ms | 40 s / 59 s |
+| Real retrieval, fake LLM | 30 | 3.2 | 0 | 51 ms | 4.1 s / 7.8 s |
+
+- With the local 7B model, generation is the bottleneck: Ollama answers one request at a time on
+  a GPU it shares with the embedder, so concurrent questions queue. A hosted LLM (the
+  `gpt-4o-mini` default) removes this.
+- With the LLM taken out, the API and database keep up (streams open in about 50 ms) and the
+  limit is the reranker, which scores one question's 20 candidates at a time (about 0.3 s), so
+  throughput tops out near 3 questions per second. Lowering `RETRIEVAL_TOP_K`, batching rerank
+  requests across users, or running more embedder replicas would raise it.

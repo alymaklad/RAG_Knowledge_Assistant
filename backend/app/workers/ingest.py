@@ -10,6 +10,7 @@ from typing import Any
 from arq.connections import RedisSettings
 
 from app.core.config import get_settings
+from app.core.logging import configure_logging
 from app.db.session import dispose_engine, get_sessionmaker
 from app.services.container import build_services
 from app.services.ingestion.pipeline import process_document
@@ -23,7 +24,7 @@ async def ingest_document(ctx: dict[str, Any], document_id: str) -> None:
 
 async def startup(ctx: dict[str, Any]) -> None:
     settings = get_settings()
-    logging.basicConfig(level=settings.log_level)
+    configure_logging(settings.log_level, settings.log_json)
     ctx["services"] = build_services(settings)
     await ctx["services"].vectors.ensure_collection()
 

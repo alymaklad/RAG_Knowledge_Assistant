@@ -8,7 +8,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import analytics, auth, chat, courses, documents, health, study
+from app.core import ratelimit
 from app.core.config import Settings, get_settings
+from app.core.logging import configure_logging, install_request_logging
 from app.db.session import dispose_engine
 from app.services.container import build_services
 
@@ -17,7 +19,8 @@ logger = logging.getLogger("courseai")
 
 def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or get_settings()
-    logging.basicConfig(level=settings.log_level)
+    settings.check_production_safety()
+    configure_logging(settings.log_level, settings.log_json)
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
@@ -36,8 +39,18 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             await app.state.arq.aclose()
         await dispose_engine()
 
-    app = FastAPI(title="Course AI Assistant API", version="0.1.0", lifespan=lifespan)
+    app = FastAPI(
+        title="Course AI Assistant API",
+        version="1.0.0",
+        lifespan=lifespan,
+        # Interactive docs only outside production.
+        docs_url=None if settings.environment == "production" else "/api/docs",
+        redoc_url=None,
+        openapi_url=None if settings.environment == "production" else "/api/openapi.json",
+    )
     app.state.settings = settings
+    ratelimit.install(app)
+    install_request_logging(app)
 
     if settings.cors_origins:
         app.add_middleware(

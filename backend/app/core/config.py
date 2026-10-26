@@ -4,6 +4,8 @@ from typing import Literal
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+DEV_JWT_SECRET = "dev-only-change-me-in-production-0123456789"
+
 
 class Settings(BaseSettings):
     """All runtime configuration, read from environment variables (or a local .env)."""
@@ -12,6 +14,7 @@ class Settings(BaseSettings):
 
     environment: Literal["development", "test", "production"] = "development"
     log_level: str = "INFO"
+    log_json: bool = False  # one JSON object per line, with request ids (production)
 
     # Datastores
     database_url: str = "postgresql+asyncpg://courseai:courseai@localhost:5433/courseai"
@@ -37,7 +40,7 @@ class Settings(BaseSettings):
     llm_timeout_seconds: float = 120.0
 
     # Auth
-    jwt_secret_key: str = "dev-only-change-me-in-production-0123456789"
+    jwt_secret_key: str = DEV_JWT_SECRET
     jwt_algorithm: str = "HS256"
     access_token_minutes: int = 30
     refresh_token_days: int = 7
@@ -73,6 +76,22 @@ class Settings(BaseSettings):
 
     # HTTP
     cors_origins: list[str] = Field(default_factory=list)
+
+    # Rate limits (per user when signed in, else per IP; slowapi syntax)
+    rate_limit_enabled: bool = True
+    rate_limit_auth: str = "10/minute"
+    rate_limit_chat: str = "20/minute"
+    rate_limit_upload: str = "10/minute"
+    rate_limit_study: str = "10/minute"
+
+    def check_production_safety(self) -> None:
+        """Refuse to start in production with development secrets."""
+        if self.environment != "production":
+            return
+        if self.jwt_secret_key == DEV_JWT_SECRET or len(self.jwt_secret_key) < 32:
+            raise RuntimeError("Set JWT_SECRET_KEY to a random value of at least 32 characters")
+        if not self.cookie_secure:
+            raise RuntimeError("Set COOKIE_SECURE=true in production (HTTPS only cookies)")
 
     @property
     def max_upload_bytes(self) -> int:

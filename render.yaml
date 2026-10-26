@@ -1,0 +1,73 @@
+# Render Blueprint (https://render.com/docs/blueprint-spec). Managed Postgres + Redis (Key Value);
+# Qdrant Cloud for vectors (set QDRANT_URL / QDRANT_API_KEY). The embedder needs ~3 GB RAM.
+services:
+  - type: web
+    name: courseai-web
+    runtime: docker
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    dockerCommand: ""
+    plan: starter
+    envVars:
+      - key: API_UPSTREAM
+        value: http://courseai-api:8000
+
+  - type: pserv
+    name: courseai-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: standard
+    disk: {name: uploads, mountPath: /app/uploads, sizeGB: 5}
+    envVars: &backendEnv
+      - fromGroup: courseai-secrets
+      - key: ENVIRONMENT
+        value: production
+      - key: LOG_JSON
+        value: "true"
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: EMBEDDER_URL
+        value: http://courseai-embedder:8001
+      - key: DATABASE_URL
+        fromDatabase: {name: courseai-db, property: connectionString}
+      - key: REDIS_URL
+        fromService: {type: keyvalue, name: courseai-redis, property: connectionString}
+
+  - type: worker
+    name: courseai-worker
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    dockerCommand: arq app.workers.ingest.WorkerSettings
+    plan: standard
+    envVars: *backendEnv
+
+  - type: pserv
+    name: courseai-embedder
+    runtime: docker
+    dockerfilePath: ./embedder/Dockerfile
+    dockerContext: ./embedder
+    plan: pro
+    disk: {name: models, mountPath: /models, sizeGB: 10}
+
+  - type: keyvalue
+    name: courseai-redis
+    plan: starter
+    ipAllowList: []
+
+databases:
+  - name: courseai-db
+    plan: basic-1gb
+
+envVarGroups:
+  - name: courseai-secrets
+    envVars:
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: LLM_API_KEY
+        sync: false
+      - key: QDRANT_URL
+        sync: false
+      - key: QDRANT_API_KEY
+        sync: false

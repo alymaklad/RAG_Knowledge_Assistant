@@ -1,7 +1,9 @@
 from fastapi import APIRouter, HTTPException, Request, Response, status
 from sqlalchemy import func, select
 
+from app.core.config import get_settings
 from app.core.deps import AppSettings, CurrentUser, DbSession
+from app.core.ratelimit import limiter
 from app.core.security import (
     REFRESH_COOKIE,
     InvalidToken,
@@ -22,8 +24,9 @@ _DUMMY_HASH = hash_password("timing-equalizer")
 
 
 @router.post("/register", response_model=TokenOut, status_code=status.HTTP_201_CREATED)
+@limiter.limit(lambda: get_settings().rate_limit_auth)
 async def register(
-    body: RegisterIn, response: Response, db: DbSession, settings: AppSettings
+    request: Request, body: RegisterIn, response: Response, db: DbSession, settings: AppSettings
 ) -> TokenOut:
     email = body.email.lower()
     if await db.scalar(select(User.id).where(func.lower(User.email) == email)):
@@ -39,8 +42,9 @@ async def register(
 
 
 @router.post("/login", response_model=TokenOut)
+@limiter.limit(lambda: get_settings().rate_limit_auth)
 async def login(
-    body: LoginIn, response: Response, db: DbSession, settings: AppSettings
+    request: Request, body: LoginIn, response: Response, db: DbSession, settings: AppSettings
 ) -> TokenOut:
     user = await db.scalar(select(User).where(func.lower(User.email) == body.email.lower()))
     valid = verify_password(body.password, user.password_hash if user else _DUMMY_HASH)

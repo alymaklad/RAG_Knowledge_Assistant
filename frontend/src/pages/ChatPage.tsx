@@ -325,7 +325,7 @@ export function ChatPage() {
                 ready.length ? "Ask about your materials" : "Add materials first"
               }
               disabled={ready.length === 0}
-              className="block w-full resize-none bg-transparent px-4 pt-3 font-read text-base text-ink placeholder:font-ui placeholder:text-pencil focus:outline-none disabled:cursor-not-allowed"
+              className="block w-full resize-none bg-transparent px-4 pt-3 font-read text-base text-ink placeholder:font-ui placeholder:text-pencil focus:outline-none focus-visible:outline-none disabled:cursor-not-allowed"
             />
             <div className="flex flex-wrap items-center justify-between gap-2 px-3 pb-3">
               <label className="flex items-center gap-2 text-xs text-graphite">

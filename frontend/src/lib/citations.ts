@@ -71,7 +71,7 @@ export function bestExcerpt(chunk: string, against: string, contextChars = 140):
       : beforeFull;
   const after =
     afterFull.length > contextChars
-      ? afterFull.slice(0, contextChars).replace(/\s+\S*$/, "") + "…"
+      ? afterFull.slice(0, contextChars).replace(/\s+\S*$/, "").replace(/[.,;:!?]$/, "") + "…"
       : afterFull;
   return { before, marked, after };
 }

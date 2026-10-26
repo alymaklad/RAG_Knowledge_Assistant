@@ -5,7 +5,9 @@ from fastapi import APIRouter, BackgroundTasks, HTTPException, Request, UploadFi
 from fastapi.responses import FileResponse
 from sqlalchemy import select
 
+from app.core.config import get_settings
 from app.core.deps import AppServices, DbSession, InstructorMembership, Membership
+from app.core.ratelimit import limiter
 from app.db.models import Chunk, DocStatus, Document
 from app.db.session import get_sessionmaker
 from app.schemas.common import DocumentOut
@@ -41,6 +43,7 @@ async def list_documents(course_id: uuid.UUID, member: Membership, db: DbSession
 
 
 @router.post("", response_model=DocumentOut, status_code=status.HTTP_202_ACCEPTED)
+@limiter.limit(lambda: get_settings().rate_limit_upload)
 async def upload_document(
     course_id: uuid.UUID,
     file: UploadFile,

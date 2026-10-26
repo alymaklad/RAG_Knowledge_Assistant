@@ -3,15 +3,11 @@ import { AppShell } from "./components/AppShell";
 import { CourseLayout } from "./components/CourseLayout";
 import { RequireAuth } from "./components/RequireAuth";
 import { AuthPage } from "./pages/AuthPage";
-import { ChatPage } from "./pages/ChatPage";
-import { CourseSettingsPage } from "./pages/CourseSettingsPage";
 import { DashboardPage } from "./pages/DashboardPage";
-import { DocumentsPage } from "./pages/DocumentsPage";
 import { ErrorPage } from "./pages/ErrorPage";
-import { InsightsPage } from "./pages/InsightsPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
-import { StudyPage } from "./pages/StudyPage";
 
+// Course sections load on demand: the chat and study pages carry the Markdown + KaTeX bundle.
 export const router = createBrowserRouter([
   { path: "/login", element: <AuthPage mode="login" /> },
   { path: "/register", element: <AuthPage mode="register" /> },
@@ -28,11 +24,31 @@ export const router = createBrowserRouter([
             element: <CourseLayout />,
             children: [
               { index: true, element: <Navigate to="chat" replace /> },
-              { path: "chat/:sessionId?", element: <ChatPage /> },
-              { path: "documents", element: <DocumentsPage /> },
-              { path: "study", element: <StudyPage /> },
-              { path: "insights", element: <InsightsPage /> },
-              { path: "settings", element: <CourseSettingsPage /> },
+              {
+                path: "chat/:sessionId?",
+                lazy: () => import("./pages/ChatPage").then((m) => ({ Component: m.ChatPage })),
+              },
+              {
+                path: "documents",
+                lazy: () =>
+                  import("./pages/DocumentsPage").then((m) => ({ Component: m.DocumentsPage })),
+              },
+              {
+                path: "study",
+                lazy: () => import("./pages/StudyPage").then((m) => ({ Component: m.StudyPage })),
+              },
+              {
+                path: "insights",
+                lazy: () =>
+                  import("./pages/InsightsPage").then((m) => ({ Component: m.InsightsPage })),
+              },
+              {
+                path: "settings",
+                lazy: () =>
+                  import("./pages/CourseSettingsPage").then((m) => ({
+                    Component: m.CourseSettingsPage,
+                  })),
+              },
             ],
           },
         ],

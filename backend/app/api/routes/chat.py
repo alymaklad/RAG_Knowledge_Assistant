@@ -7,11 +7,13 @@ import uuid
 from collections.abc import AsyncIterator
 from typing import Any
 
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, Request, status
 from fastapi.responses import StreamingResponse
 from sqlalchemy import func, select
 
+from app.core.config import get_settings
 from app.core.deps import AppServices, CurrentUser, DbSession, Membership, get_membership
+from app.core.ratelimit import limiter
 from app.db.models import ChatMessage, ChatSession, MsgRole, QueryLog
 from app.db.session import get_sessionmaker
 from app.schemas.common import ChatRequest, MessageOut, SessionOut, SessionUpdate
@@ -151,8 +153,9 @@ async def _save_assistant(
 
 
 @router.post("/chat")
+@limiter.limit(lambda: get_settings().rate_limit_chat)
 async def chat(
-    body: ChatRequest, user: CurrentUser, db: DbSession, services: AppServices
+    request: Request, body: ChatRequest, user: CurrentUser, db: DbSession, services: AppServices
 ) -> StreamingResponse:
     """Stream a grounded answer as Server-Sent Events.
 

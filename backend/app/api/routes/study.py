@@ -2,11 +2,13 @@ import uuid
 from datetime import UTC, datetime
 from typing import Any, Literal
 
-from fastapi import APIRouter, HTTPException, Response, status
+from fastapi import APIRouter, HTTPException, Request, Response, status
 from pydantic import BaseModel, Field
 from sqlalchemy import select
 
+from app.core.config import get_settings
 from app.core.deps import AppServices, CurrentUser, DbSession, Membership
+from app.core.ratelimit import limiter
 from app.db.models import Document, DocumentSummary, StudyKind, StudySet
 from app.schemas.common import ORMModel
 from app.services import study
@@ -66,7 +68,9 @@ async def list_study_sets(
     response_model=StudySetOut,
     status_code=status.HTTP_201_CREATED,
 )
+@limiter.limit(lambda: get_settings().rate_limit_study)
 async def create_study_set(
+    request: Request,
     course_id: uuid.UUID,
     body: StudySetIn,
     member: Membership,
@@ -154,7 +158,9 @@ async def get_summary(
 
 
 @router.post("/courses/{course_id}/documents/{doc_id}/summary", response_model=SummaryOut)
+@limiter.limit(lambda: get_settings().rate_limit_study)
 async def create_summary(
+    request: Request,
     course_id: uuid.UUID,
     doc_id: uuid.UUID,
     member: Membership,

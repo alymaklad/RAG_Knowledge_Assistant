@@ -246,3 +246,20 @@ Decided: default LLM and eval baseline is `gpt-4o-mini`; Qwen via Ollama is the 
 
 1. **Course languages**: if courses are non-English, the golden dataset and prompts should include that language from Week 6.
 2. **Hosting target** for the embedder (CPU instance vs. GPU vs. hosted endpoint), decided by Week 12.
+
+## 10. Implementation notes (what changed while building)
+
+| Plan said | Built | Why |
+|---|---|---|
+| shadcn/ui components | Small hand-written components (`frontend/src/components/ui.tsx`) | The UI needs ~6 primitives; avoids a generator step and keeps the bundle small |
+| `python-magic` for MIME checks | `filetype` (pure Python) + UTF-8 text sniffing | `python-magic` needs libmagic DLLs on Windows |
+| FlagEmbedding for BGE-m3 | Direct `transformers` inference (normalized CLS dense + `sparse_linear.pt` lexical weights) | Fewer dependencies, no version pinning against transformers |
+| `quiz_generations` + `flashcard_sets` tables | One `study_sets` table with a `kind` column, plus `document_summaries` and `query_logs` | Same shape for both kinds of study set |
+| Collection per course (blueprint) | One collection, `course_id` tenant index | Qdrant's recommended multitenancy pattern |
+| Default ports 5432/6333/6379/8000 | Host ports 5433/6335/6380/8010 | Avoid clashing with other local stacks; container ports unchanged |
+| Ollama default context | `OLLAMA_CONTEXT_LENGTH=16384` documented | Ollama's 4k default truncates RAG prompts |
+| Deploy to Railway/Render | `render.yaml` blueprint + `docker-compose.prod.yml`; not deployed | Deploying needs the owner's accounts and secrets |
+
+The UI is named **Margin**: answers cite sources as sidenotes in the margin, with the supporting
+sentence highlighted. Off-white, light-only theme; Literata for reading, Atkinson Hyperlegible
+Next for interface text.

@@ -1,10 +1,12 @@
 """RAG orchestration: retrieve -> build prompt -> stream the grounded answer."""
 
+import logging
 import uuid
 from collections.abc import AsyncIterator
 from dataclasses import dataclass
 from typing import Literal
 
+from app.core.guard import REFUSAL, looks_like_injection
 from app.services.container import Services
 from app.services.llm.client import Message, Usage
 from app.services.llm.prompts import (
@@ -15,6 +17,8 @@ from app.services.llm.prompts import (
 )
 from app.services.retrieval.query import rewrite_standalone
 from app.services.retrieval.retriever import RetrievedChunk, retrieve
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass(slots=True)
@@ -35,6 +39,11 @@ async def stream_answer(
     document_ids: list[uuid.UUID] | None = None,
 ) -> AsyncIterator[RagEvent]:
     settings = services.settings
+    if looks_like_injection(question):
+        logger.warning("Refused a question that looks like a prompt injection attempt")
+        yield RagEvent("sources", sources=[])
+        yield RagEvent("token", token=REFUSAL)
+        return
     search_query = question
     if history and settings.query_rewrite:
         search_query = await rewrite_standalone(services.llm, history, question)
