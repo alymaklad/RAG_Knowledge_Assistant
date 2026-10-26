@@ -1,0 +1,74 @@
+from functools import lru_cache
+from typing import Literal
+
+from pydantic import Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class Settings(BaseSettings):
+    """All runtime configuration, read from environment variables (or a local .env)."""
+
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+
+    environment: Literal["development", "test", "production"] = "development"
+    log_level: str = "INFO"
+
+    # Datastores
+    database_url: str = "postgresql+asyncpg://courseai:courseai@localhost:5433/courseai"
+    qdrant_url: str = "http://localhost:6335"  # ":memory:" runs Qdrant in-process (tests)
+    qdrant_api_key: str | None = None
+    qdrant_collection: str = "course_chunks"
+    redis_url: str = "redis://localhost:6380/0"
+
+    # Embeddings (BGE-m3 served by the embedder service)
+    embedder_backend: Literal["http", "hash"] = "http"
+    embedder_url: str = "http://localhost:8001"
+    embedding_dim: int = 1024
+    embed_batch_size: int = 32
+
+    # LLM (any OpenAI-compatible endpoint: OpenAI, Ollama, vLLM)
+    llm_provider: Literal["openai", "fake"] = "openai"
+    llm_base_url: str = "https://api.openai.com/v1"
+    llm_model: str = "gpt-4o-mini"
+    llm_api_key: str = ""
+    llm_max_tokens: int = 1000
+    llm_temperature_qa: float = 0.1
+    llm_temperature_creative: float = 0.7
+    llm_timeout_seconds: float = 120.0
+
+    # Auth
+    jwt_secret_key: str = "dev-only-change-me-in-production-0123456789"
+    jwt_algorithm: str = "HS256"
+    access_token_minutes: int = 30
+    refresh_token_days: int = 7
+    cookie_secure: bool = False
+
+    # Chunking
+    chunk_size_tokens: int = 800
+    chunk_overlap_tokens: int = 100
+    chunk_tokenizer: str = "BAAI/bge-m3"  # "approx" = ~4 chars/token, no download
+
+    # Retrieval
+    retrieval_top_k: int = 20
+    rerank_top_n: int = 5
+    hybrid_search: bool = False
+    rerank_enabled: bool = False
+    score_threshold: float | None = None
+    history_turns: int = 4
+
+    # Uploads / ingestion
+    max_upload_mb: int = 50
+    upload_dir: str = "uploads"
+    ingest_mode: Literal["queue", "inline"] = "queue"
+
+    # HTTP
+    cors_origins: list[str] = Field(default_factory=list)
+
+    @property
+    def max_upload_bytes(self) -> int:
+        return self.max_upload_mb * 1024 * 1024
+
+
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()

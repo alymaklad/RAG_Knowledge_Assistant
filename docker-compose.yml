@@ -1,0 +1,95 @@
+# Local development stack. `docker compose up --build`
+# Optional local LLM (Ollama): `docker compose --profile local-llm up`
+name: courseai
+
+x-backend-env: &backend-env
+  DATABASE_URL: postgresql+asyncpg://courseai:courseai@postgres:5432/courseai
+  QDRANT_URL: http://qdrant:6333
+  REDIS_URL: redis://redis:6379/0
+  EMBEDDER_URL: http://embedder:8001
+  UPLOAD_DIR: /app/uploads
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: courseai
+      POSTGRES_USER: courseai
+      POSTGRES_PASSWORD: courseai
+    ports: ["${POSTGRES_HOST_PORT:-5433}:5432"]
+    volumes: [postgres_data:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U courseai -d courseai"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  qdrant:
+    image: qdrant/qdrant:v1.20.0
+    ports: ["${QDRANT_HOST_PORT:-6335}:6333"]
+    volumes: [qdrant_data:/qdrant/storage]
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c ':> /dev/tcp/127.0.0.1/6333' || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    ports: ["${REDIS_HOST_PORT:-6380}:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  embedder:
+    build: ./embedder
+    environment:
+      EMBEDDER_BACKEND: ${EMBEDDER_BACKEND:-bge}
+    ports: ["${EMBEDDER_HOST_PORT:-8001}:8001"]
+    volumes: [model_cache:/models]
+
+  api:
+    build: ./backend
+    env_file: [{path: .env, required: false}]
+    environment: *backend-env
+    ports: ["${API_HOST_PORT:-8010}:8000"]
+    volumes: [uploads:/app/uploads]
+    depends_on:
+      postgres: {condition: service_healthy}
+      qdrant: {condition: service_healthy}
+      redis: {condition: service_healthy}
+      embedder: {condition: service_started}
+
+  worker:
+    build: ./backend
+    command: ["arq", "app.workers.ingest.WorkerSettings"]
+    env_file: [{path: .env, required: false}]
+    environment: *backend-env
+    volumes: [uploads:/app/uploads, model_cache:/models]
+    depends_on:
+      api: {condition: service_started}
+
+  web:
+    build:
+      context: ./frontend
+      target: dev
+    ports: ["5173:5173"]
+    environment:
+      API_PROXY_TARGET: http://api:8000
+    volumes: [./frontend/src:/app/src]
+    depends_on: [api]
+
+  ollama:
+    image: ollama/ollama:latest
+    profiles: [local-llm]
+    ports: ["11434:11434"]
+    volumes: [ollama_data:/root/.ollama]
+
+volumes:
+  postgres_data:
+  qdrant_data:
+  model_cache:
+  uploads:
+  ollama_data:
