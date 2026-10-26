@@ -165,6 +165,25 @@ class VectorStore:
             )
         return [Hit(id=str(p.id), score=p.score, payload=p.payload or {}) for p in result.points]
 
+    async def neighbors(
+        self, course_id: uuid.UUID, document_id: str, lo: int, hi: int
+    ) -> list[Hit]:
+        """Chunks lo..hi (by chunk_index) of one document, in order."""
+        flt = self._course_filter(course_id)
+        flt.must.extend(  # type: ignore[union-attr]
+            [
+                models.FieldCondition(
+                    key="document_id", match=models.MatchValue(value=document_id)
+                ),
+                models.FieldCondition(key="chunk_index", range=models.Range(gte=lo, lte=hi)),
+            ]
+        )
+        points, _ = await self.client.scroll(
+            self.collection, scroll_filter=flt, limit=hi - lo + 1, with_payload=True
+        )
+        hits = [Hit(id=str(p.id), score=0.0, payload=p.payload or {}) for p in points]
+        return sorted(hits, key=lambda h: int(h.payload.get("chunk_index", 0)))
+
     async def count(self, course_id: uuid.UUID | None = None) -> int:
         flt = self._course_filter(course_id) if course_id else None
         res = await self.client.count(self.collection, count_filter=flt, exact=True)

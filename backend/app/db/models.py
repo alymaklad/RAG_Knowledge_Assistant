@@ -168,3 +168,68 @@ class ChatMessage(Base):
     source_chunks: Mapped[list[dict[str, Any]]] = mapped_column(default=list, server_default="[]")
     tokens_used: Mapped[int | None] = mapped_column(Integer)
     created_at: Mapped[datetime] = mapped_column(server_default=func.now())
+
+
+class StudyKind(enum.StrEnum):
+    QUIZ = "quiz"
+    FLASHCARDS = "flashcards"
+
+
+class StudySet(Base):
+    """A generated quiz or flashcard deck, saved for the user who generated it."""
+
+    __tablename__ = "study_sets"
+
+    id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4)
+    course_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("courses.id", ondelete="CASCADE"), index=True
+    )
+    user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
+    document_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("documents.id", ondelete="SET NULL")
+    )
+    kind: Mapped[StudyKind] = mapped_column(_pg_enum(StudyKind, "study_kind"))
+    title: Mapped[str] = mapped_column(String(500))
+    topic: Mapped[str | None] = mapped_column(String(500))
+    items: Mapped[list[dict[str, Any]]] = mapped_column(default=list, server_default="[]")
+    sources: Mapped[list[dict[str, Any]]] = mapped_column(default=list, server_default="[]")
+    model: Mapped[str | None] = mapped_column(String(255))
+    created_at: Mapped[datetime] = mapped_column(server_default=func.now())
+
+
+class DocumentSummary(Base):
+    """Cached study summary of one document (regenerated on demand)."""
+
+    __tablename__ = "document_summaries"
+
+    document_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("documents.id", ondelete="CASCADE"), primary_key=True
+    )
+    content: Mapped[str] = mapped_column(Text)
+    sources: Mapped[list[dict[str, Any]]] = mapped_column(default=list, server_default="[]")
+    model: Mapped[str | None] = mapped_column(String(255))
+    created_at: Mapped[datetime] = mapped_column(server_default=func.now())
+
+
+class QueryLog(Base):
+    """One row per chat question, for instructor analytics."""
+
+    __tablename__ = "query_logs"
+
+    id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4)
+    course_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("courses.id", ondelete="CASCADE"), index=True
+    )
+    user_id: Mapped[uuid.UUID | None] = mapped_column(ForeignKey("users.id", ondelete="SET NULL"))
+    session_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("chat_sessions.id", ondelete="SET NULL")
+    )
+    question: Mapped[str] = mapped_column(Text)
+    search_query: Mapped[str | None] = mapped_column(Text)
+    # [{chunk_id, document_id, document_name, page_num, section_header, score}]
+    retrieved: Mapped[list[dict[str, Any]]] = mapped_column(default=list, server_default="[]")
+    cited: Mapped[list[int]] = mapped_column(JSONB, default=list, server_default="[]")
+    top_score: Mapped[float | None]
+    answered: Mapped[bool] = mapped_column(Boolean, default=True)
+    latency_ms: Mapped[int | None] = mapped_column(Integer)
+    created_at: Mapped[datetime] = mapped_column(server_default=func.now(), index=True)

@@ -34,8 +34,14 @@ export function CourseLayout() {
   const isInstructor = c.role === "instructor" || c.role === "admin";
   const tabs = [
     { to: "chat", label: "Ask" },
+    { to: "study", label: "Study" },
     { to: "documents", label: "Materials" },
-    ...(isInstructor ? [{ to: "settings", label: "Settings" }] : []),
+    ...(isInstructor
+      ? [
+          { to: "insights", label: "Insights" },
+          { to: "settings", label: "Settings" },
+        ]
+      : []),
   ];
 
   return (

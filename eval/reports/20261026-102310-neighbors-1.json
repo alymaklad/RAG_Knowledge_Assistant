@@ -1,0 +1,332 @@
+{
+  "hybrid_rerank": {
+    "hit1": 1.0,
+    "hit": 1.0,
+    "mrr": 1.0,
+    "recall": 1.0,
+    "precision": 0.874,
+    "retrieval_s_per_query": 0.419,
+    "mean_top_score_answerable": 0.898,
+    "mean_top_score_unanswerable": 0.0,
+    "hit_by_type": {
+      "factual": 1.0,
+      "multilingual": 1.0
+    },
+    "per_question": [
+      {
+        "id": "bn01",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9908034801483154
+      },
+      {
+        "id": "bn02",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9970878958702087
+      },
+      {
+        "id": "bn03",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9141375422477722
+      },
+      {
+        "id": "bn04",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9983256459236145
+      },
+      {
+        "id": "bn05",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.8745065331459045
+      },
+      {
+        "id": "bn06",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.8723474144935608
+      },
+      {
+        "id": "bn07",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9643886089324951
+      },
+      {
+        "id": "bn08",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9649873375892639
+      },
+      {
+        "id": "bn09",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9187722206115723
+      },
+      {
+        "id": "bn10",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.5799952149391174
+      },
+      {
+        "id": "bn11",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9941347241401672
+      },
+      {
+        "id": "bn12",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.975296139717102
+      },
+      {
+        "id": "bn13",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9145963191986084
+      },
+      {
+        "id": "bn14",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9686195850372314
+      },
+      {
+        "id": "bn15",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.5908382534980774
+      },
+      {
+        "id": "bn16",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9287972450256348
+      },
+      {
+        "id": "hmm01",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9987695813179016
+      },
+      {
+        "id": "hmm02",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9964203834533691
+      },
+      {
+        "id": "hmm03",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9775857925415039
+      },
+      {
+        "id": "hmm04",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9809855818748474
+      },
+      {
+        "id": "hmm05",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9763556718826294
+      },
+      {
+        "id": "hmm06",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9133679866790771
+      },
+      {
+        "id": "hmm07",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.3854903280735016
+      },
+      {
+        "id": "hmm08",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9991573095321655
+      },
+      {
+        "id": "hmm09",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9966885447502136
+      },
+      {
+        "id": "hmm10",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9954439401626587
+      },
+      {
+        "id": "hmm11",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9954261183738708
+      },
+      {
+        "id": "hmm12",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.8010035157203674
+      },
+      {
+        "id": "hmm13",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9657061100006104
+      },
+      {
+        "id": "hmm14",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9984812140464783
+      },
+      {
+        "id": "hmm15",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.6610482335090637
+      },
+      {
+        "id": "hmm16",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9975177049636841
+      },
+      {
+        "id": "tcp01",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9960082769393921
+      },
+      {
+        "id": "tcp02",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.8480936288833618
+      },
+      {
+        "id": "tcp03",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9451974034309387
+      },
+      {
+        "id": "tcp04",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9761291742324829
+      },
+      {
+        "id": "tcp05",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9987305998802185
+      },
+      {
+        "id": "tcp06",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9950562715530396
+      },
+      {
+        "id": "tcp07",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.8652240633964539
+      },
+      {
+        "id": "tcp08",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9993435740470886
+      },
+      {
+        "id": "tcp09",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9785493016242981
+      },
+      {
+        "id": "tcp10",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.46996113657951355
+      },
+      {
+        "id": "tcp11",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9924813508987427
+      },
+      {
+        "id": "tcp12",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.9343951344490051
+      },
+      {
+        "id": "tcp13",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.984752357006073
+      },
+      {
+        "id": "tcp14",
+        "type": "factual",
+        "hit": 1.0,
+        "top_score": 0.83601975440979
+      },
+      {
+        "id": "ml01",
+        "type": "multilingual",
+        "hit": 1.0,
+        "top_score": 0.4978656470775604
+      },
+      {
+        "id": "ml02",
+        "type": "multilingual",
+        "hit": 1.0,
+        "top_score": 0.6315943002700806
+      },
+      {
+        "id": "ml03",
+        "type": "multilingual",
+        "hit": 1.0,
+        "top_score": 0.9810219407081604
+      },
+      {
+        "id": "na01",
+        "type": "unanswerable",
+        "hit": 0.0,
+        "top_score": 0.0
+      },
+      {
+        "id": "na02",
+        "type": "unanswerable",
+        "hit": 0.0,
+        "top_score": 0.0
+      },
+      {
+        "id": "na03",
+        "type": "unanswerable",
+        "hit": 0.0,
+        "top_score": 0.0
+      }
+    ],
+    "min_top_score_answerable": 0.3855,
+    "max_top_score_unanswerable": 0.0
+  }
+}

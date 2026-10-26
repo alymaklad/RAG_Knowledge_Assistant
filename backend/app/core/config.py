@@ -60,6 +60,10 @@ class Settings(BaseSettings):
     multi_query: bool = False
     multi_query_count: int = 3
     query_rewrite: bool = True  # make follow-up questions standalone before retrieval
+    # Parent-child style expansion: add this many neighbouring chunks on each side of every
+    # retrieved chunk. Off by default: it lifts Hit@1 0.96 -> 1.00 on the eval set but makes the
+    # prompt 2-3x longer (eval/RESULTS.md). Worth enabling for long-context models.
+    context_neighbors: int = 0
     history_turns: int = 4
 
     # Uploads / ingestion

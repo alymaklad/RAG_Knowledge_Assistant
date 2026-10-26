@@ -79,6 +79,7 @@ def fake_llm(app: FastAPI) -> FakeLLM:
     llm = app.state.services.llm
     assert isinstance(llm, FakeLLM)
     llm.calls.clear()
+    llm.json_responders.clear()
     return llm
 
 

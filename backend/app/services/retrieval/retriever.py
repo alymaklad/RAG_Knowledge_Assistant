@@ -100,6 +100,26 @@ async def rerank(
     return [replace(c, rerank_score=float(s)) for c, s in ranked]
 
 
+async def expand_with_neighbors(
+    services: Services, course_id: uuid.UUID, chunks: list[RetrievedChunk], n: int
+) -> list[RetrievedChunk]:
+    """Match on small chunks, answer from the surrounding passage: replace each chunk's text
+    with itself plus up to `n` neighbouring chunks of the same document, without repeats."""
+    seen: set[str] = set()
+    out: list[RetrievedChunk] = []
+    for c in chunks:
+        if c.chunk_id in seen:
+            continue
+        hits = await services.vectors.neighbors(
+            course_id, c.document_id, max(0, c.chunk_index - n), c.chunk_index + n
+        )
+        parts = [h for h in hits if h.id == c.chunk_id or h.id not in seen]
+        seen.update(h.id for h in parts)
+        text = "\n\n".join(str(h.payload.get("text", "")) for h in parts) or c.text
+        out.append(replace(c, text=text))
+    return out
+
+
 async def retrieve(
     services: Services,
     *,
@@ -138,4 +158,7 @@ async def retrieve(
             chunks = reranked
             if s.rerank_threshold is not None:
                 chunks = [c for c in chunks if (c.rerank_score or 0.0) >= s.rerank_threshold]
-    return chunks[: s.rerank_top_n]
+    chunks = chunks[: s.rerank_top_n]
+    if s.context_neighbors > 0:
+        chunks = await expand_with_neighbors(services, course_id, chunks, s.context_neighbors)
+    return chunks

@@ -111,3 +111,38 @@ async def test_rewrite_uses_history() -> None:
     out = await rewrite_standalone(llm, history, "And how does it handle loss?")
     assert out == "How does TCP handle loss?"
     assert "Follow-up question: And how does it handle loss?" in llm.calls[0][-1]["content"]
+
+
+async def test_neighbor_expansion_adds_surrounding_chunks() -> None:
+    settings = get_settings().model_copy(
+        update={"hybrid_search": False, "rerank_enabled": False, "rerank_top_n": 1}
+    )
+    embedder = HashEmbeddingClient(64)
+    store = VectorStore(AsyncQdrantClient(location=":memory:"), "n", 64)
+    await store.ensure_collection()
+    parts = ["Intro to graphs.", "The Markov blanket shields a node.", "Gibbs sampling uses it."]
+    emb = await embedder.embed(parts)
+    await store.upsert(
+        [
+            ChunkPoint(
+                id=uuid.uuid4(),
+                dense=emb.dense[i],
+                sparse=emb.sparse[i],
+                payload={
+                    "course_id": str(COURSE),
+                    "document_id": "doc",
+                    "chunk_index": i,
+                    "text": t,
+                },
+            )
+            for i, t in enumerate(parts)
+        ]
+    )
+    services = Services(settings=settings, embedder=embedder, vectors=store, llm=FakeLLM())
+
+    plain = await retrieve(services, course_id=COURSE, query="markov blanket shields")
+    assert plain[0].text == parts[1]
+
+    services.settings = settings.model_copy(update={"context_neighbors": 1})
+    expanded = await retrieve(services, course_id=COURSE, query="markov blanket shields")
+    assert expanded[0].text == "\n\n".join(parts)

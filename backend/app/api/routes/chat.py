@@ -1,6 +1,8 @@
 import asyncio
 import json
 import logging
+import re
+import time
 import uuid
 from collections.abc import AsyncIterator
 from typing import Any
@@ -10,7 +12,7 @@ from fastapi.responses import StreamingResponse
 from sqlalchemy import func, select
 
 from app.core.deps import AppServices, CurrentUser, DbSession, Membership, get_membership
-from app.db.models import ChatMessage, ChatSession, MsgRole
+from app.db.models import ChatMessage, ChatSession, MsgRole, QueryLog
 from app.db.session import get_sessionmaker
 from app.schemas.common import ChatRequest, MessageOut, SessionOut, SessionUpdate
 from app.services.llm.client import Message, Usage
@@ -21,6 +23,47 @@ logger = logging.getLogger(__name__)
 router = APIRouter(tags=["chat"])
 
 SOURCE_TEXT_LIMIT = 1200  # stored with each assistant message for the citation viewer
+_CITE_RE = re.compile(r"\[Sources?\s*([\d,\s]+(?:(?:and|&)\s*\d+)?)\]", re.I)
+
+
+def cited_numbers(answer: str) -> list[int]:
+    return sorted({int(n) for m in _CITE_RE.findall(answer) for n in re.findall(r"\d+", m)})
+
+
+async def _log_query(
+    *,
+    course_id: uuid.UUID,
+    user_id: uuid.UUID,
+    session_id: uuid.UUID,
+    question: str,
+    search_query: str | None,
+    sources: list[RetrievedChunk],
+    answer: str,
+    latency_ms: int,
+) -> None:
+    """Record the question for instructor analytics. Never lets a logging failure surface."""
+    try:
+        async with get_sessionmaker()() as db:
+            db.add(
+                QueryLog(
+                    course_id=course_id,
+                    user_id=user_id,
+                    session_id=session_id,
+                    question=question,
+                    search_query=search_query if search_query != question else None,
+                    retrieved=[
+                        {k: v for k, v in c.as_source(i).items() if k != "text"}
+                        for i, c in enumerate(sources, 1)
+                    ],
+                    cited=cited_numbers(answer),
+                    top_score=sources[0].display_score if sources else None,
+                    answered=bool(sources) and "could not find" not in answer.lower(),
+                    latency_ms=latency_ms,
+                )
+            )
+            await db.commit()
+    except Exception:
+        logger.exception("Failed to write query log")
 
 
 def sse(event: str, data: Any) -> str:
@@ -134,8 +177,10 @@ async def chat(
     session_out = SessionOut.model_validate(session).model_dump(mode="json")
 
     async def events() -> AsyncIterator[str]:
+        started = time.perf_counter()
         parts: list[str] = []
         sources: list[RetrievedChunk] = []
+        search_query: str | None = None
         usage: Usage | None = None
         saved = False
 
@@ -159,6 +204,7 @@ async def chat(
                 document_ids=body.document_ids,
             ):
                 if ev.kind == "query" and ev.query:
+                    search_query = ev.query
                     yield sse("query", {"query": ev.query})
                 elif ev.kind == "sources" and ev.sources is not None:
                     sources = ev.sources
@@ -172,6 +218,16 @@ async def chat(
                 elif ev.kind == "usage":
                     usage = ev.usage
             message_id = await save()
+            await _log_query(
+                course_id=body.course_id,
+                user_id=user.id,
+                session_id=session.id,
+                question=body.message,
+                search_query=search_query,
+                sources=sources,
+                answer="".join(parts),
+                latency_ms=round((time.perf_counter() - started) * 1000),
+            )
             yield sse(
                 "done",
                 {"message_id": message_id, "tokens_used": usage.total_tokens if usage else None},

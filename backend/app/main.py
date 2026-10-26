@@ -7,7 +7,7 @@ from arq.connections import RedisSettings
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import auth, chat, courses, documents, health
+from app.api.routes import analytics, auth, chat, courses, documents, health, study
 from app.core.config import Settings, get_settings
 from app.db.session import dispose_engine
 from app.services.container import build_services
@@ -48,7 +48,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             allow_headers=["*"],
         )
 
-    for module in (health, auth, courses, documents, chat):
+    for module in (health, auth, courses, documents, chat, study, analytics):
         app.include_router(module.router, prefix="/api")
     return app
 

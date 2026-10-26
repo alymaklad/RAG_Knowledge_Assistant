@@ -25,6 +25,14 @@ reranker bge-reranker-v2-m3. Raw reports are in `eval/reports/`.
 - On CPU the reranker takes about 9.8 s per question (20 candidates); on the GPU 0.4 s. Without a
   GPU, lower `RETRIEVAL_TOP_K` or turn re-ranking off.
 
+### Neighbour expansion (parent-child retrieval)
+
+`CONTEXT_NEIGHBORS=1` replaces each retrieved chunk with itself plus the chunks on either side.
+On hybrid + re-rank it raised Hit@1 from 0.959 to 1.000 (MRR 0.980 to 1.000), partly by
+construction: a longer passage is more likely to contain the evidence. Each passage sent to the
+LLM grows two to three times, which matters for small local models (Ollama's default 4k
+context), so it ships off and is worth enabling with long-context models.
+
 ## "Not in your materials" threshold
 
 | Score used | Lowest answerable top-1 | Highest unanswerable top-1 |
