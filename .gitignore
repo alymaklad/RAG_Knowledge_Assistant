@@ -31,3 +31,7 @@ data/
 backend/tests/.uploads/
 eval/corpus/pdf/
 .claude/
+
+# Local planning documents (not published)
+IMPLEMENTATION_PLAN.md
+RAG_Knowledge_Assistant_Blueprint.docx

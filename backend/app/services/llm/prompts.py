@@ -1,4 +1,4 @@
-"""Prompt templates (blueprint Section 7), with retrieved context fenced as untrusted data."""
+"""Prompt templates, with retrieved context fenced as untrusted data."""
 
 NOT_FOUND_ANSWER = (
     "I could not find enough information about this in the uploaded course materials. "
